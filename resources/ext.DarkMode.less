@@ -425,8 +425,25 @@
 		}
 
 		.oo-ui-popupToolGroup-tools {
-			background-color: @dark-bg-elevated;
-			border-color: @dark-border;
+			background-color: @dark-bg-elevated !important;
+			border-color: @dark-border !important;
+		}
+
+		.oo-ui-popupToolGroup-handle {
+			background-color: transparent !important;
+		}
+
+		.oo-ui-popupToolGroup.oo-ui-widget-enabled:hover .oo-ui-popupToolGroup-handle,
+		.oo-ui-popupToolGroup-active .oo-ui-popupToolGroup-handle {
+			background-color: @dark-bg-surface !important;
+		}
+
+		.oo-ui-popupToolGroup-tools .oo-ui-tool-link {
+			background-color: @dark-bg-elevated !important;
+		}
+
+		.oo-ui-popupToolGroup-tools .oo-ui-tool.oo-ui-widget-enabled:hover .oo-ui-tool-link {
+			background-color: @dark-bg-surface !important;
 		}
 
 		.oo-ui-processDialog-content > .oo-ui-window-head,
@@ -1097,6 +1114,29 @@
 
 		a:visited:not([class*='oo-ui-']):not(.ico-btn):not(.dropdown-toggle):not(.breadcrumb-item a) {
 			color: @dark-link-visited;
+		}
+
+		// Keep editor text areas white for readability
+		.ve-ce-documentNode,
+		.ve-ui-surface-source .ve-ce-documentNode,
+		.wikiEditor-ui-text textarea,
+		#wpTextbox1,
+		.CodeMirror,
+		.cm-editor,
+		.ve-init-mw-desktopArticleTarget .ve-ce-surface {
+			background-color: #fff !important;
+			color: #000 !important;
+		}
+
+		.CodeMirror-gutters,
+		.cm-gutters {
+			background-color: #f5f5f5 !important;
+			border-color: #ddd !important;
+		}
+
+		.CodeMirror-linenumber,
+		.cm-lineNumbers .cm-gutterElement {
+			color: #999 !important;
 		}
 
 		// Mega menu links
