@@ -1,15 +1,15 @@
 @import 'mediawiki.skin.variables.less';
 
 @dark-bg: #080909;
-@dark-bg-elevated: #000;
-@dark-bg-surface: #1d1f21;
-@dark-bg-input: #1d1f21;
-@dark-text: #d5d8de;
+@dark-bg-elevated: #1d1f21;
+@dark-bg-surface: #1e2021;
+@dark-bg-input: #1e2021;
+@dark-text: #e8e6e3;
 @dark-text-muted: #9a9fa8;
-@dark-text-heading: #f0f1f3;
-@dark-border: #242730;
-@dark-link: #5599ff;
-@dark-link-visited: #b89ee8;
+@dark-text-heading: #e8e6e3;
+@dark-border: #2a2c2e;
+@dark-link: #51a1ea;
+@dark-link-visited: #7fbcf0;
 @dark-link-red: #ff6e6e;
 @dark-accent: #f2994a;
 @dark-highlight: #3871dc;
@@ -17,8 +17,8 @@
 @dark-diff-del: #351515;
 @dark-code-bg: #1a1c22;
 @dark-table-header: #1d1f21;
-@dark-table-stripe: #0d0e10;
-@dark-box-color: #1d1f21;
+@dark-table-stripe: #0e0f10;
+@dark-box-color: #1e2021;
 
 @media screen {
 	.ext-darkmode-link::before {
@@ -60,7 +60,7 @@
 		--secondary-font-color: @dark-text-muted !important;
 
 		// Navbar
-		--navbar-primary-bg: @dark-bg-elevated !important;
+		--navbar-primary-bg: #1d1f21 !important;
 		--navbar-primary-fg: @dark-text !important;
 		--navbar-primary-fg--hover: @dark-text-heading !important;
 		--navbar-primary-border-color: @dark-border !important;
@@ -103,16 +103,16 @@
 		--mws-secondary-fg--hover: @dark-text-heading !important;
 
 		// Sidebar primary
-		--sidebar-primary-bg: @dark-bg-elevated !important;
-		--sidebar-primary-bg--hover: @dark-bg-surface !important;
-		--sidebar-primary-bg--active: @dark-bg-surface !important;
-		--sidebar-primary-fg: @dark-text-muted !important;
-		--sidebar-primary-fg--hover: @dark-text !important;
-		--sidebar-primary-fg--active: @dark-text !important;
+		--sidebar-primary-bg: #111213 !important;
+		--sidebar-primary-bg--hover: #1a1c1e !important;
+		--sidebar-primary-bg--active: #1a1c1e !important;
+		--sidebar-primary-fg: @dark-text !important;
+		--sidebar-primary-fg--hover: @dark-link !important;
+		--sidebar-primary-fg--active: @dark-link !important;
 		--sidebar-primary-border: @dark-border !important;
 		--sidebar-primary-marker--hover: @dark-link !important;
 		--sidebar-primary-marker--active: @dark-link !important;
-		--sidebar-primary-header-fg: @dark-text-muted !important;
+		--sidebar-primary-header-fg: @dark-text !important;
 		--sidebar-primary-header-border-color: @dark-border !important;
 		--sidebar-primary-border-marker: @dark-border !important;
 		--sidebar-primary-tab-home-bg: @dark-box-color !important;
@@ -121,16 +121,16 @@
 		--sidebar-primary-tab-home-fg--hover: @dark-link !important;
 
 		// Sidebar secondary
-		--sidebar-secondary-bg: @dark-bg-elevated !important;
-		--sidebar-secondary-bg--hover: @dark-bg-surface !important;
-		--sidebar-secondary-bg--active: @dark-bg-surface !important;
-		--sidebar-secondary-fg: @dark-text-muted !important;
-		--sidebar-secondary-fg--hover: @dark-text !important;
-		--sidebar-secondary-fg--active: @dark-text !important;
+		--sidebar-secondary-bg: #111213 !important;
+		--sidebar-secondary-bg--hover: #1a1c1e !important;
+		--sidebar-secondary-bg--active: #1a1c1e !important;
+		--sidebar-secondary-fg: @dark-text !important;
+		--sidebar-secondary-fg--hover: @dark-link !important;
+		--sidebar-secondary-fg--active: @dark-link !important;
 		--sidebar-secondary-border: @dark-border !important;
 		--sidebar-secondary-marker--hover: @dark-link !important;
 		--sidebar-secondary-marker--active: @dark-link !important;
-		--sidebar-secondary-header-fg: @dark-text-muted !important;
+		--sidebar-secondary-header-fg: @dark-text !important;
 		--sidebar-secondary-header-border-color: @dark-border !important;
 		--sidebar-secondary-border-marker: @dark-border !important;
 		--sidebar-secondary-tab-home-fg: @dark-text-muted !important;
@@ -150,7 +150,7 @@
 		--data-after-content-bg: @dark-bg !important;
 		--aftercontent-border-color: @dark-border !important;
 		--aftercontent-tools-fg: @dark-text-muted !important;
-		--footer-bg: @dark-bg-elevated !important;
+		--footer-bg: #1d1f21 !important;
 		--footer-fg: @dark-text-muted !important;
 		--footer-fg--hover: @dark-text-heading !important;
 
@@ -239,6 +239,58 @@
 		.catlinks {
 			background-color: @dark-bg-elevated;
 			border-color: @dark-border;
+		}
+
+		// File page: tab bar and file history table
+		#filetoc {
+			background-color: @dark-bg-elevated !important;
+			border-color: @dark-border !important;
+			color: @dark-text !important;
+		}
+
+		.wikitable {
+			background-color: @dark-bg-elevated !important;
+			border-color: @dark-border !important;
+			color: @dark-text !important;
+		}
+
+		.wikitable th {
+			background-color: @dark-bg-surface !important;
+			border-color: @dark-border !important;
+			color: @dark-text !important;
+		}
+
+		.wikitable td {
+			background-color: @dark-bg-elevated !important;
+			border-color: @dark-border !important;
+			color: @dark-text !important;
+		}
+
+		.fullImageLink .MediaTransformError {
+			background-color: @dark-bg-surface !important;
+			color: @dark-text-muted !important;
+		}
+
+		// Image thumbnails and figures
+		figure[typeof*="mw:File"],
+		.thumb,
+		.thumbinner {
+			background-color: @dark-bg-elevated !important;
+			border-color: @dark-border !important;
+			color: @dark-text !important;
+		}
+
+		figure[typeof*="mw:File"] figcaption,
+		.thumbcaption {
+			background-color: @dark-bg-elevated !important;
+			color: @dark-text-muted !important;
+			border-color: @dark-border !important;
+		}
+
+		figure[typeof*="mw:File"] .mw-file-element,
+		figure[typeof*="mw:File"] .mw-broken-media {
+			background-color: @dark-bg-surface !important;
+			color: @dark-text-muted !important;
 		}
 
 		.mw-message-box,
@@ -446,6 +498,44 @@
 			color: @dark-text;
 		}
 
+		// Bootstrap text color utilities that hardcode black/dark
+		.col-black,
+		.text-black,
+		.text-dark {
+			color: @dark-text !important;
+		}
+
+		// Wiki content tables: override inline light backgrounds and dark text
+		.mw-parser-output th,
+		.mw-body-content th {
+			background-color: @dark-bg-elevated !important;
+			color: @dark-text !important;
+		}
+
+		.mw-parser-output td,
+		.mw-parser-output table {
+			background-color: @dark-bg-elevated !important;
+			color: @dark-text !important;
+			border-color: @dark-border !important;
+		}
+
+		.mw-parser-output td[style*="background"],
+		.mw-parser-output table[style*="background"],
+		.mw-parser-output div[style*="background"] {
+			background-color: @dark-bg-elevated !important;
+		}
+
+		.mw-parser-output td[style*="color"],
+		.mw-parser-output div[style*="color"],
+		.mw-parser-output span[style*="color"],
+		.mw-parser-output p[style*="color"] {
+			color: @dark-text !important;
+		}
+
+		.col-white-bg {
+			background-color: @dark-bg-elevated !important;
+		}
+
 		// Content droplets / textbox templates
 		.cd-textbox {
 			color: @dark-text;
@@ -600,16 +690,38 @@
 			background-color: @dark-border !important;
 		}
 
-		// Breadcrumb & sidebar scrollbar overrides
+		// Sidebar scrollbar - more visible
+		#sb-pri,
+		#sb-sec {
+			scrollbar-color: #666 transparent;
+			scrollbar-width: thin;
+		}
+
+		#sb-pri::-webkit-scrollbar,
+		#sb-sec::-webkit-scrollbar {
+			width: 8px;
+			background-color: transparent;
+		}
+
+		#sb-pri::-webkit-scrollbar-thumb,
+		#sb-sec::-webkit-scrollbar-thumb {
+			background-color: #666;
+			border-radius: 4px;
+		}
+
+		#sb-pri::-webkit-scrollbar-thumb:hover,
+		#sb-sec::-webkit-scrollbar-thumb:hover {
+			background-color: #888;
+		}
+
+		// Breadcrumb & table scrollbar overrides
 		.breadcrumb-menu::-webkit-scrollbar {
 			background-color: @dark-bg-elevated;
 		}
 
 		.breadcrumb-menu::-webkit-scrollbar-thumb,
-		#sb-pri::-webkit-scrollbar-thumb,
-		#sb-sec::-webkit-scrollbar-thumb,
 		div.responsive-table-scrollable::-webkit-scrollbar-thumb {
-			background-color: #444;
+			background-color: #555;
 		}
 
 		// Body scrollbar
@@ -741,116 +853,246 @@
 
 		// jQuery UI datepicker (calendar)
 		.ui-datepicker {
-			background-color: @dark-bg-surface;
-			border-color: @dark-border;
-			color: @dark-text;
+			background-color: @dark-bg-surface !important;
+			border-color: @dark-border !important;
+			color: @dark-text !important;
 		}
 
 		.ui-datepicker .ui-datepicker-header {
-			background-color: @dark-bg-elevated;
-			border-color: @dark-border;
-			color: @dark-text;
+			background-color: @dark-bg-elevated !important;
+			border-color: @dark-border !important;
+			color: @dark-text !important;
 		}
 
 		.ui-datepicker .ui-state-default {
-			background-color: @dark-bg-surface;
-			border-color: @dark-border;
-			color: @dark-text;
+			background-color: @dark-bg-surface !important;
+			border-color: @dark-border !important;
+			color: @dark-text !important;
 		}
 
 		.ui-datepicker .ui-state-highlight {
-			background-color: @dark-highlight;
-			color: #fff;
+			background-color: @dark-highlight !important;
+			color: #fff !important;
 		}
 
 		.ui-datepicker .ui-state-active {
-			background-color: @dark-highlight;
-			color: #fff;
+			background-color: @dark-highlight !important;
+			color: #fff !important;
 		}
 
 		.ui-datepicker .ui-state-hover {
-			background-color: @dark-bg-input;
-			color: @dark-text-heading;
+			background-color: @dark-bg-input !important;
+			color: @dark-text-heading !important;
 		}
 
 		.ui-datepicker select {
-			background-color: @dark-bg-input;
-			color: @dark-text;
-			border-color: @dark-border;
+			background-color: @dark-bg-input !important;
+			color: @dark-text !important;
+			border-color: @dark-border !important;
 		}
 
 		.ui-datepicker .ui-datepicker-other-month .ui-state-default {
-			color: @dark-text-muted;
+			color: @dark-text-muted !important;
 		}
 
 		.ui-widget-content {
-			background-color: @dark-bg-surface;
-			border-color: @dark-border;
-			color: @dark-text;
+			background-color: @dark-bg-surface !important;
+			border-color: @dark-border !important;
+			color: @dark-text !important;
 		}
 
 		.ui-widget-header {
-			background-color: @dark-bg-elevated;
-			border-color: @dark-border;
-			color: @dark-text;
+			background-color: @dark-bg-elevated !important;
+			border-color: @dark-border !important;
+			color: @dark-text !important;
 		}
 
 		// FullCalendar (SRF event calendar)
 		.fc-unthemed .fc-content,
 		.fc-unthemed .fc-widget-content,
 		.fc-unthemed .fc-widget-header {
-			border-color: @dark-border;
+			border-color: @dark-border !important;
 		}
 
-		.fc-unthemed td.fc-today {
-			background-color: @dark-bg-surface;
+		.fc td,
+		.fc th,
+		.fc .fc-day,
+		.fc .fc-bg td,
+		.fc-widget-content,
+		.fc-row .fc-bg {
+			background-color: @dark-bg !important;
+		}
+
+		.fc-head-container,
+		.fc-head-container .fc-widget-header {
+			background-color: @dark-bg-elevated !important;
+			color: @dark-text !important;
+		}
+
+		.fc-head-container th {
+			background-color: @dark-bg-elevated !important;
+			color: @dark-text !important;
+		}
+
+		.fc-unthemed td.fc-today,
+		.fc td.fc-today {
+			background-color: @dark-bg-surface !important;
 		}
 
 		.fc-toolbar h2 {
-			color: @dark-text-heading;
+			color: @dark-text-heading !important;
 		}
 
 		.fc-button {
-			background-color: @dark-bg-surface;
-			border-color: @dark-border;
-			color: @dark-text;
+			background-color: @dark-bg-surface !important;
+			border-color: @dark-border !important;
+			color: @dark-text !important;
 		}
 
 		.fc-button:hover {
-			background-color: @dark-bg-input;
+			background-color: @dark-bg-input !important;
 		}
 
 		.fc-state-active {
-			background-color: @dark-highlight;
-			color: #fff;
+			background-color: @dark-highlight !important;
+			color: #fff !important;
+		}
+
+		.fc-event,
+		.fc-event-dot {
+			background-color: @dark-highlight !important;
+			border-color: @dark-highlight !important;
+			color: #fff !important;
+		}
+
+		.fc-view-container,
+		.fc-view,
+		.fc-view table {
+			background-color: @dark-bg !important;
 		}
 
 		// SRF calendar pane
 		.srf-eventcalendar .srf-calendarpane {
-			background-color: @dark-bg-surface;
-			color: @dark-text;
+			background-color: @dark-bg-surface !important;
+			color: @dark-text !important;
 		}
 
 		.srf-eventcalendar .srf-calendarpane fieldset {
-			border-color: @dark-border;
-			color: @dark-text-muted;
+			border-color: @dark-border !important;
+			color: @dark-text-muted !important;
 		}
 
 		.srf-eventcalendar .srf-calendarpane legend {
-			color: @dark-text-muted;
+			color: @dark-text-muted !important;
+		}
+
+		.srf-eventcalendar .srf-calendarpane label {
+			color: @dark-text !important;
+		}
+
+		.srf-eventcalendar .srf-calendarpane input[type="text"] {
+			background-color: @dark-bg-input !important;
+			color: @dark-text !important;
+			border-color: @dark-border !important;
 		}
 
 		.srf-eventcalendar .parameters {
-			background-color: @dark-bg-surface;
+			background-color: @dark-bg-surface !important;
 		}
 
 		.srf-eventcalendar .ui-slider {
-			background-color: @dark-bg-input;
-			border-color: @dark-border;
+			background-color: @dark-bg-input !important;
+			border-color: @dark-border !important;
 		}
 
 		.srf-eventcalendar .ui-slider-range {
-			background-color: @dark-highlight;
+			background-color: @dark-highlight !important;
+		}
+
+		// jQuery UI datepicker inline (mini calendar in sidebar)
+		.ui-datepicker-inline {
+			background-color: @dark-bg-surface !important;
+			border-color: @dark-border !important;
+		}
+
+		.ui-datepicker-inline .ui-datepicker-calendar td {
+			background-color: @dark-bg-surface !important;
+		}
+
+		.ui-datepicker-inline .ui-datepicker-calendar td a,
+		.ui-datepicker-inline .ui-datepicker-calendar td span {
+			color: @dark-text !important;
+		}
+
+		.ui-datepicker .ui-datepicker-prev,
+		.ui-datepicker .ui-datepicker-next {
+			color: @dark-text !important;
+		}
+
+		.ui-datepicker .ui-datepicker-prev span,
+		.ui-datepicker .ui-datepicker-next span {
+			filter: invert(1);
+		}
+
+		// Sidebar section headers bold
+		#sb-pri .card-header.menu-title,
+		#sb-sec .card-header.menu-title {
+			font-weight: bold;
+			color: @dark-text !important;
+		}
+
+		// Links: underline on hover, proper visited color
+		a:hover {
+			text-decoration: underline;
+		}
+
+		a:visited:not([class*='oo-ui-']):not(.ico-btn):not(.dropdown-toggle):not(.breadcrumb-item a) {
+			color: @dark-link-visited;
+		}
+
+		// Mega menu links
+		.mega-menu .menu-list a {
+			color: @dark-link !important;
+		}
+
+		.mega-menu .menu-list a:hover {
+			color: lighten(@dark-link, 15%) !important;
+			text-decoration: underline;
+		}
+
+		// VisualEditor toolbar - invert icons so they're visible on dark bg
+		.oo-ui-toolbar-bar .oo-ui-iconElement-icon,
+		.oo-ui-toolbar-bar .oo-ui-indicatorElement-indicator {
+			filter: invert(1);
+		}
+
+		// VE toolbar bg slightly lighter for contrast
+		.ve-ui-toolbar > .oo-ui-toolbar-bar,
+		.ve-init-mw-desktopArticleTarget-toolbar .oo-ui-toolbar-bar {
+			background-color: @dark-bg-elevated !important;
+			border-color: @dark-border !important;
+		}
+
+		// VE toolbar tool hover
+		.oo-ui-toolbar-bar .oo-ui-tool.oo-ui-widget-enabled > .oo-ui-tool-link:hover {
+			background-color: @dark-bg-surface;
+		}
+
+		// VE toolbar popup menus
+		.oo-ui-toolbar-bar .oo-ui-popupToolGroup-handle .oo-ui-labelElement-label {
+			color: @dark-text;
+		}
+
+		// OOUI dialog headers and labels
+		.oo-ui-processDialog-location,
+		.oo-ui-processDialog-title,
+		.oo-ui-messageDialog-title,
+		.oo-ui-messageDialog-message {
+			color: @dark-text !important;
+		}
+
+		.oo-ui-labelElement-label {
+			color: @dark-text;
 		}
 
 		// Notifications megamenu
