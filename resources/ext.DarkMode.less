@@ -1,9 +1,9 @@
 @import 'mediawiki.skin.variables.less';
 
-@dark-bg: #0b0c0f;
-@dark-bg-elevated: #151619;
-@dark-bg-surface: #1a1c22;
-@dark-bg-input: #1e2028;
+@dark-bg: #080909;
+@dark-bg-elevated: #000;
+@dark-bg-surface: #1d1f21;
+@dark-bg-input: #1d1f21;
 @dark-text: #d5d8de;
 @dark-text-muted: #9a9fa8;
 @dark-text-heading: #f0f1f3;
@@ -16,9 +16,9 @@
 @dark-diff-add: #132d13;
 @dark-diff-del: #351515;
 @dark-code-bg: #1a1c22;
-@dark-table-header: #1e2028;
-@dark-table-stripe: #131418;
-@dark-box-color: #1e2028;
+@dark-table-header: #1d1f21;
+@dark-table-stripe: #0d0e10;
+@dark-box-color: #1d1f21;
 
 @media screen {
 	.ext-darkmode-link::before {
@@ -106,9 +106,9 @@
 		--sidebar-primary-bg: @dark-bg-elevated !important;
 		--sidebar-primary-bg--hover: @dark-bg-surface !important;
 		--sidebar-primary-bg--active: @dark-bg-surface !important;
-		--sidebar-primary-fg: @dark-text !important;
-		--sidebar-primary-fg--hover: @dark-text-heading !important;
-		--sidebar-primary-fg--active: @dark-text-heading !important;
+		--sidebar-primary-fg: @dark-text-muted !important;
+		--sidebar-primary-fg--hover: @dark-text !important;
+		--sidebar-primary-fg--active: @dark-text !important;
 		--sidebar-primary-border: @dark-border !important;
 		--sidebar-primary-marker--hover: @dark-link !important;
 		--sidebar-primary-marker--active: @dark-link !important;
@@ -124,9 +124,9 @@
 		--sidebar-secondary-bg: @dark-bg-elevated !important;
 		--sidebar-secondary-bg--hover: @dark-bg-surface !important;
 		--sidebar-secondary-bg--active: @dark-bg-surface !important;
-		--sidebar-secondary-fg: @dark-text !important;
-		--sidebar-secondary-fg--hover: @dark-text-heading !important;
-		--sidebar-secondary-fg--active: @dark-text-heading !important;
+		--sidebar-secondary-fg: @dark-text-muted !important;
+		--sidebar-secondary-fg--hover: @dark-text !important;
+		--sidebar-secondary-fg--active: @dark-text !important;
 		--sidebar-secondary-border: @dark-border !important;
 		--sidebar-secondary-marker--hover: @dark-link !important;
 		--sidebar-secondary-marker--active: @dark-link !important;
@@ -725,6 +725,153 @@
 
 		.bs-tagsearch-cnt .bs-extendedsearch-searchbar-clear {
 			border-color: @dark-border !important;
+		}
+
+		// At-mention badges (inline styles need !important)
+		a.at-mention {
+			background-color: @dark-bg-surface !important;
+			border-color: @dark-border !important;
+			color: @dark-text !important;
+		}
+
+		// TOC number colors
+		.tocnumber {
+			color: @dark-text-muted;
+		}
+
+		// jQuery UI datepicker (calendar)
+		.ui-datepicker {
+			background-color: @dark-bg-surface;
+			border-color: @dark-border;
+			color: @dark-text;
+		}
+
+		.ui-datepicker .ui-datepicker-header {
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
+			color: @dark-text;
+		}
+
+		.ui-datepicker .ui-state-default {
+			background-color: @dark-bg-surface;
+			border-color: @dark-border;
+			color: @dark-text;
+		}
+
+		.ui-datepicker .ui-state-highlight {
+			background-color: @dark-highlight;
+			color: #fff;
+		}
+
+		.ui-datepicker .ui-state-active {
+			background-color: @dark-highlight;
+			color: #fff;
+		}
+
+		.ui-datepicker .ui-state-hover {
+			background-color: @dark-bg-input;
+			color: @dark-text-heading;
+		}
+
+		.ui-datepicker select {
+			background-color: @dark-bg-input;
+			color: @dark-text;
+			border-color: @dark-border;
+		}
+
+		.ui-datepicker .ui-datepicker-other-month .ui-state-default {
+			color: @dark-text-muted;
+		}
+
+		.ui-widget-content {
+			background-color: @dark-bg-surface;
+			border-color: @dark-border;
+			color: @dark-text;
+		}
+
+		.ui-widget-header {
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
+			color: @dark-text;
+		}
+
+		// FullCalendar (SRF event calendar)
+		.fc-unthemed .fc-content,
+		.fc-unthemed .fc-widget-content,
+		.fc-unthemed .fc-widget-header {
+			border-color: @dark-border;
+		}
+
+		.fc-unthemed td.fc-today {
+			background-color: @dark-bg-surface;
+		}
+
+		.fc-toolbar h2 {
+			color: @dark-text-heading;
+		}
+
+		.fc-button {
+			background-color: @dark-bg-surface;
+			border-color: @dark-border;
+			color: @dark-text;
+		}
+
+		.fc-button:hover {
+			background-color: @dark-bg-input;
+		}
+
+		.fc-state-active {
+			background-color: @dark-highlight;
+			color: #fff;
+		}
+
+		// SRF calendar pane
+		.srf-eventcalendar .srf-calendarpane {
+			background-color: @dark-bg-surface;
+			color: @dark-text;
+		}
+
+		.srf-eventcalendar .srf-calendarpane fieldset {
+			border-color: @dark-border;
+			color: @dark-text-muted;
+		}
+
+		.srf-eventcalendar .srf-calendarpane legend {
+			color: @dark-text-muted;
+		}
+
+		.srf-eventcalendar .parameters {
+			background-color: @dark-bg-surface;
+		}
+
+		.srf-eventcalendar .ui-slider {
+			background-color: @dark-bg-input;
+			border-color: @dark-border;
+		}
+
+		.srf-eventcalendar .ui-slider-range {
+			background-color: @dark-highlight;
+		}
+
+		// Notifications megamenu
+		.notifications-no-notifications-wrapper p {
+			color: @dark-text !important;
+		}
+
+		.notifications-megamenu-body {
+			background-color: @dark-bg-elevated;
+		}
+
+		.notification-item {
+			background-color: @dark-bg-surface !important;
+		}
+
+		.notification-message {
+			color: @dark-text !important;
+		}
+
+		.notification-timestamp {
+			color: @dark-text-muted !important;
 		}
 	}
 }
