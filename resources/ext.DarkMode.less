@@ -1115,5 +1115,22 @@
 		.notification-timestamp {
 			color: @dark-text-muted !important;
 		}
+
+		// Watermark in bottom-right of content area
+		#content::after {
+			content: '';
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			width: 200px;
+			height: 200px;
+			background-image: url('/w/images/flexiskin/watermark.png');
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: bottom right;
+			opacity: 0.08;
+			pointer-events: none;
+			z-index: 0;
+		}
 	}
 }
