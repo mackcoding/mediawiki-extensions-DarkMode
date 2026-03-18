@@ -1,208 +1,827 @@
 @import 'mediawiki.skin.variables.less';
 
-/* WikimediaUI Dark Mode
- *
- * Wikimedia Design Team 2019-2021
- * Original authors:
- * - Volker E.
- * - Alex Hollender
- * - MusikAnimal
- * - Carolyn Li-Madeo
- * - Jdlrobson
- */
-
-/* Table colors */
-@darkmode-table-background-color: #ddd;
-@darkmode-border-color: #cdcbc8;
-
-/* Link colors chosen for level AA conformance, see T233266 and T213778 */
-@darkmode-link-color: #36c;
-@darkmode-link-visited-color: #6b4ba1;
-@darkmode-red-link-color: #ff6e6e;
+@dark-bg: #111217;
+@dark-bg-elevated: #181b1f;
+@dark-bg-surface: #1d2025;
+@dark-bg-input: #22252a;
+@dark-text: #ccced3;
+@dark-text-muted: #8b8f97;
+@dark-text-heading: #fff;
+@dark-border: #2a2d33;
+@dark-link: #6fa3ef;
+@dark-link-visited: #b89ee8;
+@dark-link-red: #ff6e6e;
+@dark-accent: #f2994a;
+@dark-diff-add: #1a3a1a;
+@dark-diff-del: #3a1a1a;
+@dark-code-bg: #1d2025;
+@dark-table-header: #22252a;
+@dark-table-stripe: #181b1f;
 
 @media screen {
-	/* set height for Monobook and Timeless, because the filter in FF needs dimensions to get it to apply */
-	html {
-		height: 100%;
-	}
-
 	.ext-darkmode-link::before {
-		content: '\263E'; /* Moon icon */
+		content: '\263E';
 		display: inline-block;
 
-		/* "Default mode" link */
 		.skin-theme-clientpref-night & {
-			content: '\263C'; /* Sun icon */
+			content: '\263C';
 		}
 	}
 
-	/* START OF DARKMODE STYLES */
 	.skin-theme-clientpref-night,
 	.client-darkmode {
-		/* Needed for some skins that have weird DOM structures and CSS such that elements don't appear over the <body> */
-		/* This also helps save energy on OLED displays (such as smart phones). */
-		background: #fff;
+		background-color: @dark-bg;
+		color: @dark-text;
 
-		&,
-		img,
-		video,
-		svg,
-		iframe, /* some maps are iframes */
-		.mw-no-invert,
-		.cdx-no-invert,
-		td .diffchange {
-			&:not( .mw-invert ) {
-				filter: invert( 1 ) hue-rotate( 180deg );
-				-webkit-filter: invert( 1 ) hue-rotate( 180deg );
-			}
+		body,
+		#content,
+		#mw-content-text,
+		.mw-body,
+		.mw-body-content,
+		#bodyContent,
+		#main,
+		#wrapper {
+			background-color: @dark-bg;
+			color: @dark-text;
 		}
 
-		/* Reset overrides, needed where double application above isn't working. */
-		.skin-timeless .mw-wiki-title > img,
-		.cdx-icon svg {
-			&:not( .mw-invert ) {
-				filter: none;
-				-webkit-filter: none;
-			}
+		h1, h2, h3, h4, h5, h6,
+		.mw-headline,
+		.firstHeading,
+		#firstHeading {
+			color: @dark-text-heading;
+			border-color: @dark-border;
 		}
 
-		/* Backgrounds */
+		a {
+			color: @dark-link;
+		}
+
+		a:visited {
+			color: @dark-link-visited;
+		}
+
+		a.new {
+			color: @dark-link-red;
+		}
+
+		a.external {
+			color: @dark-link;
+		}
+
+		.mw-changeslist-date,
+		.comment,
+		.mw-indicator,
+		small,
+		.minor,
+		.mw-editsection,
+		.mw-editsection-bracket,
+		.mw-editsection-divider {
+			color: @dark-text-muted;
+		}
+
+		// BlueSpice Discovery: primary navbar
+		#nb-pri,
+		.navbar,
+		nav.navbar {
+			background-color: @dark-bg-elevated !important;
+			border-color: @dark-border;
+		}
+
+		#nb-pri .ico-btn,
+		#nb-pri a,
+		.navbar a {
+			color: @dark-text;
+		}
+
+		#nb-pri .ico-btn:hover,
+		.navbar a:hover {
+			color: @dark-text-heading;
+		}
+
+		.navbar-primary-height {
+			background-color: @dark-bg-elevated;
+		}
+
+		// BlueSpice Discovery: primary sidebar
+		#sb-pri-cnt,
+		#sb-pri {
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
+		}
+
+		#sb-pri .menu-title,
+		#sb-pri .card-header {
+			color: @dark-text-muted;
+			background-color: transparent;
+			border-color: @dark-border;
+		}
+
+		#sb-pri .list-group-item {
+			background-color: transparent;
+			border-color: @dark-border;
+		}
+
+		#sb-pri .list-group-item a {
+			color: @dark-text;
+		}
+
+		#sb-pri .list-group-item a:hover {
+			color: @dark-link;
+		}
+
+		#sb-pri .card {
+			background-color: transparent;
+			border-color: @dark-border;
+		}
+
+		// BlueSpice Discovery: secondary sidebar
+		#sb-sec-cnt,
+		#sb-sec {
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
+		}
+
+		#sb-sec .menu-title,
+		#sb-sec .card-header {
+			color: @dark-text-muted;
+			background-color: transparent;
+			border-color: @dark-border;
+		}
+
+		#sb-sec .list-group-item {
+			background-color: transparent;
+			border-color: @dark-border;
+		}
+
+		#sb-sec .list-group-item a {
+			color: @dark-text;
+		}
+
+		#sb-sec .list-group-item a:hover {
+			color: @dark-link;
+		}
+
+		#sb-sec .card {
+			background-color: transparent;
+			border-color: @dark-border;
+		}
+
+		// BlueSpice Discovery: toolbar icons
+		#toolbar .ico-btn {
+			color: @dark-text-muted;
+		}
+
+		#toolbar .ico-btn:hover {
+			color: @dark-text-heading;
+		}
+
+		// BlueSpice Discovery: title section
+		#title-section {
+			border-color: @dark-border;
+		}
+
+		#title-line {
+			border-color: @dark-border;
+		}
+
+		#title-actions .ico-btn {
+			color: @dark-text;
+		}
+
+		// BlueSpice Discovery: breadcrumbs
+		.breadcrumb,
+		.breadcrumb-item,
+		.breadcrumb-nav {
+			background-color: transparent;
+			color: @dark-text-muted;
+		}
+
+		.breadcrumb-item a {
+			color: @dark-text-muted;
+		}
+
+		.breadcrumb-item a:hover {
+			color: @dark-link;
+		}
+
+		.breadcrumb-item.active span {
+			color: @dark-text;
+		}
+
+		// BlueSpice Discovery: last edit info
+		.last-edit-info {
+			color: @dark-text-muted;
+		}
+
+		.last-edit-info a {
+			color: @dark-text-muted;
+		}
+
+		// BlueSpice Discovery: mega menus
+		.mega-menu,
+		.megamenu .mega-menu {
+			background-color: @dark-bg-elevated;
+			color: @dark-text;
+		}
+
+		.mega-menu .card-mn {
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
+		}
+
+		.mega-menu .menu-title {
+			color: @dark-text-muted;
+			border-color: @dark-border;
+		}
+
+		.mega-menu .menu-list .list-group-item {
+			background-color: transparent;
+			border-color: @dark-border;
+		}
+
+		.mega-menu .menu-list a {
+			color: @dark-text;
+		}
+
+		.mega-menu .menu-list a:hover {
+			color: @dark-link;
+		}
+
+		.mm-bg {
+			background-color: rgba(0, 0, 0, 0.5);
+		}
+
+		// BlueSpice Discovery: search
+		#bs-extendedsearch-input,
+		#bs-extendedsearch-mobile-input {
+			background-color: @dark-bg-input;
+			color: @dark-text;
+			border-color: @dark-border;
+		}
+
+		#mw-searchButton {
+			background-color: @dark-bg-input;
+			color: @dark-text-muted;
+			border-color: @dark-border;
+		}
+
+		.bs-extendedsearch-autocomplete-popup {
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
+			color: @dark-text;
+		}
+
+		.bs-extendedsearch-autocomplete-popup .bs-extendedsearch-autocomplete-popup-item:hover,
+		.bs-extendedsearch-autocomplete-popup .bs-autocomplete-result-selected {
+			background-color: @dark-bg-surface;
+		}
+
+		.bs-extendedsearch-autocomplete-popup .bs-extendedsearch-autocomplete-popup-item-header {
+			color: @dark-link;
+		}
+
+		.bs-extendedsearch-autocomplete-popup .bs-extendedsearch-autocomplete-popup-secondary {
+			border-color: @dark-border;
+		}
+
+		// BlueSpice Discovery: footer
+		#footer {
+			background-color: @dark-bg;
+			color: @dark-text-muted;
+			border-color: @dark-border;
+		}
+
+		#footer a {
+			color: @dark-text-muted;
+		}
+
+		#footer a:hover {
+			color: @dark-link;
+		}
+
+		// BlueSpice Discovery: aftercontent
+		#aftercontent {
+			background-color: @dark-bg;
+			border-color: @dark-border;
+		}
+
+		// BlueSpice Discovery: back to top
+		.back-to-top {
+			color: @dark-text-muted;
+		}
+
+		// BlueSpice Discovery: edit section links
+		.new-page-split-btn .dropdown-menu {
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
+		}
+
+		.new-page-split-btn .dropdown-item {
+			color: @dark-text;
+		}
+
+		.new-page-split-btn .dropdown-item:hover {
+			background-color: @dark-bg-surface;
+			color: @dark-link;
+		}
+
+		// BlueSpice Discovery: content droplets / textbox templates
+		.cd-textbox {
+			color: @dark-text;
+		}
+
+		.cd-textbox-note {
+			background-color: #1a2a3a;
+		}
+
+		.cd-textbox-tip {
+			background-color: #2a2510;
+		}
+
+		.cd-textbox-warning {
+			background-color: #3a1a1a;
+		}
+
+		.cd-textbox-important {
+			background-color: #3a2a1a;
+		}
+
+		.cd-textbox-neutral {
+			background-color: @dark-bg-surface;
+		}
+
+		.cd-textbox-success {
+			background-color: #1a3a1a;
+		}
+
+		// BlueSpice Discovery: user mini profile
+		.bs-userminiprofile {
+			color: @dark-text;
+		}
+
+		// BlueSpice Discovery: notifications megamenu
+		.notifications-megamenu-body {
+			background-color: @dark-bg-elevated;
+		}
+
+		// Tables
 		table,
-		table.ambox-content,
-		table.toccolours,
-		.mw-notification,
-		.mwe-popups,
-		.infobox,
+		.wikitable {
+			background-color: @dark-bg-surface;
+			color: @dark-text;
+			border-color: @dark-border;
+
+			th {
+				background-color: @dark-table-header;
+				color: @dark-text-heading;
+				border-color: @dark-border;
+			}
+
+			td {
+				border-color: @dark-border;
+			}
+
+			tr:nth-child(even) {
+				background-color: @dark-table-stripe;
+			}
+		}
+
+		// TOC
 		.toc,
-		.thumbinner,
-		.wikitable,
-		.cbnnr-main,
-		.cx-callout,
-		#simpleSearch,
-		#searchInput,
-		#centralNotice .cnotice {
-			background-color: @darkmode-table-background-color;
+		.toccolours {
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
 		}
 
-		/* Borders */
-		&,
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6,
-		table.ambox-content,
-		table.toccolours,
-		.mw-notification,
-		.infobox,
-		.toc,
-		.thumbinner,
-		#mw-head,
-		#mw-panel,
-		#content.mw-body,
-		#simpleSearch,
-		#searchInput,
-		#centralNotice .cnotice {
-			border-color: @darkmode-border-color;
+		.infobox {
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
+			color: @dark-text;
 		}
 
-		/* Links */
-		/* Links: normal */
-		a,
-		.vector-menu-tabs li a,
-		/* Backwards compatible VectorTabs, deprecated in MW 1.35 */
-		.vectorTabs li a,
-		.toctogglelabel,
-		.mw-parser-output a.external,
-		.mw-parser-output a.extiw,
-		.mw-parser-output a.extiw:active,
-		#mw-panel .portal .body li a {
-			color: @darkmode-link-color;
+		// Code
+		pre,
+		code,
+		.mw-code {
+			background-color: @dark-code-bg;
+			color: @dark-text;
+			border-color: @dark-border;
 		}
 
-		/* Visited links */
-		a:visited,
-		.mw-parser-output a.extiw:visited,
-		#mw-panel .portal .body li a:visited {
-			color: @darkmode-link-visited-color;
+		.mw-highlight {
+			background-color: @dark-code-bg;
+			border-color: @dark-border;
 		}
 
-		/* Links: red */
-		a.new,
-		.vector-menu-tabs li.new a,
-		.vectorTabs li.new a {
-			color: @darkmode-red-link-color;
+		// Thumbnails
+		.thumb,
+		.thumbinner {
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
 		}
 
-		/* ::: Special Element Treatments ::: */
-		/* Image thumbnails */
+		.thumbcaption {
+			color: @dark-text-muted;
+		}
+
 		.thumbimage {
 			border: 0;
 		}
 
-		/* Content image (thumbnail) SVGs */
-		/* `*not( .mbox-image )` exception doesn't work for unclear reasons */
-		.image img[ src*='svg' ] {
-			background-color: #fff;
-			border-radius: 1px;
+		// Categories
+		.catlinks {
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
 		}
 
-		/* Dealing with false positives from selector above */
-		.mw-echo-ui-notificationItemWidget-icon img[ src*='svg' ],
-		.mbox-image .image img[ src*='svg' ],
-		/* Vote symbols on Talk pages */
-		.image img[ alt^='Symbol' ] {
+		.bs-insert-category-tool {
+			color: @dark-text-muted;
+		}
+
+		// Message boxes
+		.mw-message-box,
+		.mbox,
+		.ambox,
+		.tmbox,
+		.ombox,
+		.cmbox,
+		.fmbox {
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
+			color: @dark-text;
+		}
+
+		// Notifications
+		.mw-notification {
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
+			color: @dark-text;
+		}
+
+		// Search inputs
+		#simpleSearch,
+		#searchInput,
+		.mw-searchInput,
+		.oo-ui-inputWidget-input {
+			background-color: @dark-bg-input;
+			color: @dark-text;
+			border-color: @dark-border;
+		}
+
+		// Form elements
+		input,
+		textarea,
+		select {
+			background-color: @dark-bg-input;
+			color: @dark-text;
+			border-color: @dark-border;
+		}
+
+		input[type="submit"],
+		button,
+		.mw-ui-button {
+			background-color: @dark-bg-surface;
+			color: @dark-text;
+			border-color: @dark-border;
+		}
+
+		.mw-ui-button.mw-ui-progressive {
+			background-color: #3871dc;
+			color: #fff;
+			border-color: #3871dc;
+		}
+
+		// Diffs
+		.diff-context {
+			background-color: @dark-bg;
+			color: @dark-text;
+		}
+
+		.diff-addedline {
+			background-color: @dark-diff-add;
+		}
+
+		.diff-deletedline {
+			background-color: @dark-diff-del;
+		}
+
+		td.diff-marker {
+			color: @dark-text-muted;
+		}
+
+		// OOUI
+		.oo-ui-widget {
+			color: @dark-text;
+		}
+
+		.oo-ui-panelLayout-framed {
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
+		}
+
+		.oo-ui-popupWidget-popup {
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
+		}
+
+		.oo-ui-menuSelectWidget {
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
+		}
+
+		.oo-ui-menuOptionWidget.oo-ui-optionWidget-highlighted {
+			background-color: @dark-bg-surface;
+		}
+
+		.oo-ui-menuOptionWidget.oo-ui-optionWidget-selected {
+			background-color: #1a2a3a;
+			color: @dark-link;
+		}
+
+		.oo-ui-textInputWidget .oo-ui-inputWidget-input {
+			background-color: @dark-bg-input;
+			color: @dark-text;
+			border-color: @dark-border;
+		}
+
+		.oo-ui-dropdownWidget-handle {
+			background-color: @dark-bg-surface;
+			color: @dark-text;
+			border-color: @dark-border;
+		}
+
+		.oo-ui-buttonElement-framed > .oo-ui-buttonElement-button {
+			background-color: @dark-bg-surface;
+			color: @dark-text;
+			border-color: @dark-border;
+		}
+
+		.oo-ui-buttonElement-framed.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button {
+			color: @dark-link;
+		}
+
+		.oo-ui-buttonElement-framed.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button {
+			background-color: #3871dc;
+			color: #fff;
+			border-color: #3871dc;
+		}
+
+		.oo-ui-tagItemWidget {
+			background-color: @dark-bg-surface;
+			border-color: @dark-border;
+			color: @dark-text;
+		}
+
+		// OOUI toolbar
+		.oo-ui-toolbar-bar {
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
+		}
+
+		.oo-ui-popupToolGroup-tools {
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
+		}
+
+		// OOUI dialogs
+		.oo-ui-processDialog-content > .oo-ui-window-head,
+		.oo-ui-processDialog-content > .oo-ui-window-foot {
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
+		}
+
+		.oo-ui-processDialog-errors {
+			background-color: @dark-bg;
+		}
+
+		.oo-ui-windowManager-modal > .oo-ui-dialog > .oo-ui-window-frame {
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
+		}
+
+		.oo-ui-windowManager-modal > .oo-ui-dialog {
+			background-color: rgba(0, 0, 0, 0.65);
+		}
+
+		// Vector skin navigation (backward compat)
+		#mw-head,
+		#mw-panel,
+		#content.mw-body,
+		.vector-menu-tabs li a,
+		.vectorTabs li a {
+			color: @dark-text;
+		}
+
+		#mw-panel .portal .body li a {
+			color: @dark-link;
+		}
+
+		#mw-panel .portal .body li a:visited {
+			color: @dark-link-visited;
+		}
+
+		// Bootstrap: cards
+		.card {
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
+			color: @dark-text;
+		}
+
+		.card-header {
+			background-color: @dark-bg-surface;
+			border-color: @dark-border;
+			color: @dark-text;
+		}
+
+		// Bootstrap: dropdowns
+		.dropdown-menu {
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
+		}
+
+		.dropdown-menu a,
+		.dropdown-item {
+			color: @dark-text;
+		}
+
+		.dropdown-menu a:hover,
+		.dropdown-item:hover {
+			background-color: @dark-bg-surface;
+			color: @dark-link;
+		}
+
+		// Bootstrap: tabs
+		.nav-tabs {
+			border-color: @dark-border;
+		}
+
+		.nav-tabs .nav-link {
+			color: @dark-text;
+		}
+
+		.nav-tabs .nav-link.active {
+			background-color: @dark-bg;
+			border-color: @dark-border;
+			color: @dark-text-heading;
+		}
+
+		// Bootstrap: modals
+		.modal-content {
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
+			color: @dark-text;
+		}
+
+		.modal-header,
+		.modal-footer {
+			border-color: @dark-border;
+		}
+
+		// Bootstrap: alerts
+		.alert {
+			border-color: @dark-border;
+		}
+
+		.alert-info {
+			background-color: #1a2a3a;
+			color: @dark-text;
+		}
+
+		.alert-warning {
+			background-color: #3a2a1a;
+			color: @dark-text;
+		}
+
+		.alert-danger {
+			background-color: #3a1a1a;
+			color: @dark-text;
+		}
+
+		// Bootstrap: list-group
+		.list-group-item {
 			background-color: transparent;
+			border-color: @dark-border;
+			color: @dark-text;
 		}
 
-		/* Page previews */
+		// Bootstrap: badges
+		.badge {
+			color: @dark-text;
+		}
+
+		// Bootstrap: forms
+		.form-control {
+			background-color: @dark-bg-input;
+			color: @dark-text;
+			border-color: @dark-border;
+		}
+
+		.input-group-text {
+			background-color: @dark-bg-surface;
+			color: @dark-text-muted;
+			border-color: @dark-border;
+		}
+
+		// Bootstrap: btn
+		.btn {
+			color: @dark-text;
+		}
+
+		.btn:hover {
+			color: @dark-text-heading;
+		}
+
+		// Page previews / popups
 		.mwe-popups {
-			box-shadow: 0 30px 90px -20px rgba( 0, 0, 0, 0.3 ), 0 0 1px #000;
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
+			box-shadow: 0 30px 90px -20px rgba(0, 0, 0, 0.4);
+			color: @dark-text;
 		}
 
-		.mwe-popups.flipped-y::after,
-		.mwe-popups.flipped-x-y::after {
-			border-top: 11px solid @darkmode-table-background-color;
+		// Generic elements
+		hr {
+			border-color: @dark-border;
 		}
 
-		.mwe-popups.mwe-popups-no-image-pointer::after {
-			border-bottom: 11px solid @darkmode-table-background-color;
+		blockquote {
+			border-color: @dark-border;
+			color: @dark-text-muted;
 		}
 
-		/* Contributions menu */
-		html .cx-callout-1::after {
-			border-bottom-color: @darkmode-table-background-color;
+		fieldset {
+			border-color: @dark-border;
 		}
 
-		/* Mobile logo header */
-		html .branding-box img {
-			filter: brightness( 0 );
+		legend {
+			color: @dark-text;
+		}
+
+		// SMW
+		.smw-table-cell,
+		.smw-table-head {
+			border-color: @dark-border;
+		}
+
+		.smw-table-header {
+			background-color: @dark-table-header;
+		}
+
+		// VisualEditor
+		.ve-ui-toolbar-bar {
+			background-color: @dark-bg-elevated;
+		}
+
+		.ve-ui-surface .ve-ce-attachedRootNode {
+			background-color: @dark-bg;
+			color: @dark-text;
+		}
+
+		.ve-init-mw-desktopArticleTarget-toolbarPlaceholder-bar {
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
+		}
+
+		// BlueSpice: extended search center
+		.bs-extendedsearch-result,
+		.bs-search-result {
+			background-color: @dark-bg-elevated;
+			border-color: @dark-border;
+			color: @dark-text;
+		}
+
+		// BlueSpice: context menu
+		.bs-context-menu .oo-ui-popupWidget-popup {
+			background-color: @dark-bg-elevated;
+		}
+
+		// BlueSpice: checklist
+		.bs-checklist-item {
+			color: @dark-text;
+		}
+
+		// Special pages
+		.mw-special-Recentchanges,
+		.mw-special-Allpages,
+		.mw-special-Search {
+			color: @dark-text;
+		}
+
+		// Scrollbar
+		scrollbar-color: #444 @dark-bg-elevated;
+
+		::-webkit-scrollbar {
+			background-color: @dark-bg-elevated;
+		}
+
+		::-webkit-scrollbar-thumb {
+			background-color: #444;
+			border-radius: 4px;
+		}
+
+		::-webkit-scrollbar-thumb:hover {
+			background-color: #555;
 		}
 	}
-}
-
-/* Hacks for older Firefox versions */
-@-moz-document url-prefix() {
-	body {
-		background: #000;
-	}
-}
-
-@-moz-document url-prefix() {
-	@supports (overflow-clip-margin: 1px) {
-		body {
-			background: #fff;
-		}
-	}
-}
-
-.mw-ui-icon-wikimedia-moon {
-	background: #000;
-	.cdx-mixin-css-icon( @cdx-icon-moon, @param-is-button-icon: true );
-}
-
-.mw-ui-icon-wikimedia-bright {
-	background: #000;
-	.cdx-mixin-css-icon( @cdx-icon-bright, @param-is-button-icon: true );
 }

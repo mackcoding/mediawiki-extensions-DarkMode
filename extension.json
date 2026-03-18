@@ -1,11 +1,12 @@
 {
 	"name": "DarkMode",
-	"version": "0.2.1",
+	"version": "0.1.0",
 	"author": [
+		"Thomas Mack",
 		"MusikAnimal",
 		"Radman Siddiki"
 	],
-	"url": "https://www.mediawiki.org/wiki/Extension:DarkMode",
+	"url": "https://github.com/mackcoding/mediawiki-extensions-DarkMode",
 	"descriptionmsg": "darkmode-desc",
 	"license-name": "MIT",
 	"type": "other",
