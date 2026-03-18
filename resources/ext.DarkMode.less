@@ -31,8 +31,9 @@
 	}
 
 	// Override BlueSpice Discovery CSS custom properties
-	.skin-theme-clientpref-night,
-	.client-darkmode {
+	// Specificity 0,2,1 beats :root (0,1,0) regardless of source order
+	html.client-js.skin-theme-clientpref-night,
+	html.client-js.client-darkmode {
 		// Body
 		--body-bg: @dark-bg !important;
 		--body-special-bg: @dark-bg !important;
