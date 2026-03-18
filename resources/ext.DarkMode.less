@@ -397,9 +397,14 @@
 		}
 
 		.oo-ui-buttonElement-framed.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button {
-			background-color: @dark-highlight;
-			color: #fff;
-			border-color: @dark-highlight;
+			background-color: @dark-highlight !important;
+			color: #fff !important;
+			border-color: @dark-highlight !important;
+		}
+
+		.oo-ui-buttonElement-framed.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:hover {
+			background-color: lighten(@dark-highlight, 10%) !important;
+			border-color: lighten(@dark-highlight, 10%) !important;
 		}
 
 		.oo-ui-tagItemWidget {
@@ -971,6 +976,44 @@
 			background-color: @dark-bg !important;
 		}
 
+		.fc-content-skeleton,
+		.fc-content-skeleton td,
+		.fc-content-skeleton th,
+		.fc-bgevent-skeleton,
+		.fc-bgevent-skeleton td {
+			background-color: transparent !important;
+		}
+
+		.fc-other-month {
+			background-color: @dark-bg-surface !important;
+		}
+
+		.fc-day-number {
+			color: @dark-text !important;
+		}
+
+		.fc-other-month .fc-day-number {
+			color: @dark-text-muted !important;
+		}
+
+		// SRF "Create new event" form
+		.srf-eventcalendar-form,
+		.srf-eventcalendar .smw-form,
+		#content .srf-eventcalendar ~ div,
+		.mw-parser-output > table:last-of-type {
+			background-color: @dark-bg-elevated !important;
+			border-color: @dark-border !important;
+			color: @dark-text !important;
+		}
+
+		.srf-eventcalendar button,
+		.srf-eventcalendar input[type="submit"],
+		.srf-eventcalendar .oo-ui-buttonElement-button {
+			background-color: @dark-bg-surface !important;
+			color: @dark-text !important;
+			border-color: @dark-border !important;
+		}
+
 		// SRF calendar pane
 		.srf-eventcalendar .srf-calendarpane {
 			background-color: @dark-bg-surface !important;
@@ -1081,6 +1124,48 @@
 		// VE toolbar popup menus
 		.oo-ui-toolbar-bar .oo-ui-popupToolGroup-handle .oo-ui-labelElement-label {
 			color: @dark-text;
+		}
+
+		// VE toolbar popup menu items (hamburger menu, editor switch)
+		.oo-ui-tool.oo-ui-widget-enabled .oo-ui-tool-link {
+			color: @dark-text;
+		}
+
+		.oo-ui-toolbar-bar .oo-ui-tool.oo-ui-widget-enabled .oo-ui-tool-link:hover,
+		.oo-ui-toolbar-bar .oo-ui-tool.oo-ui-widget-enabled .oo-ui-tool-link:focus {
+			background-color: @dark-bg-surface !important;
+			color: @dark-text !important;
+		}
+
+		.oo-ui-popupToolGroup-tools .oo-ui-tool-link .oo-ui-tool-title {
+			color: @dark-text !important;
+		}
+
+		.oo-ui-popupToolGroup-tools .oo-ui-tool-active .oo-ui-tool-link {
+			background-color: @dark-bg-surface !important;
+		}
+
+		// VE editor switch dropdown
+		.ve-ui-toolbar-bar .oo-ui-popupWidget-popup,
+		.oo-ui-toolbar-bar .oo-ui-popupWidget-popup {
+			background-color: @dark-bg-elevated !important;
+			border-color: @dark-border !important;
+		}
+
+		.oo-ui-listToolGroup .oo-ui-tool.oo-ui-widget-enabled:hover .oo-ui-tool-link {
+			background-color: @dark-bg-surface !important;
+		}
+
+		// VE save button area
+		.ve-ui-toolbar-saveButton .oo-ui-buttonElement-button {
+			background-color: @dark-highlight !important;
+			color: #fff !important;
+			border-color: @dark-highlight !important;
+		}
+
+		.ve-ui-toolbar-saveButton .oo-ui-buttonElement-button:hover {
+			background-color: lighten(@dark-highlight, 10%) !important;
+			border-color: lighten(@dark-highlight, 10%) !important;
 		}
 
 		// OOUI dialog headers and labels
