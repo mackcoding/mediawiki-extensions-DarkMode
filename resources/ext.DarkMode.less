@@ -1202,38 +1202,41 @@
 			background-color: @dark-bg-surface !important;
 		}
 
-		// VE save button and toolbar action buttons
-		.ve-ui-toolbar-saveButton .oo-ui-buttonElement-button,
-		.oo-ui-toolbar-actions .oo-ui-flaggedElement-primary .oo-ui-buttonElement-button,
-		.oo-ui-toolbar-actions .oo-ui-flaggedElement-progressive .oo-ui-buttonElement-button {
+		// VE save button - targets the actual <a> element
+		a.ve-ui-toolbar-saveButton,
+		.ve-ui-toolbar-group-save .oo-ui-tool-link {
 			background-color: @dark-highlight !important;
 			color: #fff !important;
-			border-color: @dark-highlight !important;
 		}
 
-		.ve-ui-toolbar-saveButton .oo-ui-buttonElement-button:hover,
-		.oo-ui-toolbar-actions .oo-ui-flaggedElement-primary .oo-ui-buttonElement-button:hover,
-		.oo-ui-toolbar-actions .oo-ui-flaggedElement-progressive .oo-ui-buttonElement-button:hover {
+		a.ve-ui-toolbar-saveButton:hover,
+		.ve-ui-toolbar-group-save .oo-ui-tool-link:hover {
 			background-color: lighten(@dark-highlight, 10%) !important;
-			border-color: lighten(@dark-highlight, 10%) !important;
 		}
 
-		// VE toolbar actions area (editor switch, save group)
-		.oo-ui-toolbar-actions .oo-ui-buttonElement-button {
+		.ve-ui-toolbar-group-save {
+			background-color: transparent !important;
+		}
+
+		.ve-ui-toolbar-group-save .oo-ui-flaggedElement-primary,
+		.ve-ui-toolbar-group-save .oo-ui-flaggedElement-progressive {
+			background-color: transparent !important;
+		}
+
+		// VE editor switch and page menu button areas
+		.ve-ui-toolbar-group-editMode .oo-ui-popupToolGroup-handle,
+		.ve-ui-toolbar-group-pageMenu .oo-ui-popupToolGroup-handle {
 			background-color: @dark-bg-surface !important;
-			color: @dark-text !important;
-			border-color: @dark-border !important;
 		}
 
-		.oo-ui-toolbar-actions .oo-ui-buttonElement-button:hover {
+		.ve-ui-toolbar-group-editMode .oo-ui-popupToolGroup-handle:hover,
+		.ve-ui-toolbar-group-pageMenu .oo-ui-popupToolGroup-handle:hover {
 			background-color: @dark-bg-elevated !important;
 		}
 
-		// Don't let the generic override kill the primary button styling
-		.oo-ui-toolbar-actions .oo-ui-flaggedElement-primary .oo-ui-buttonElement-button,
-		.oo-ui-toolbar-actions .oo-ui-flaggedElement-progressive .oo-ui-buttonElement-button {
-			background-color: @dark-highlight !important;
-			color: #fff !important;
+		// VE toolbar popup menu hover - make it more visible
+		.oo-ui-popupToolGroup-tools .oo-ui-tool.oo-ui-widget-enabled:hover > .oo-ui-tool-link {
+			background-color: #2a2c2e !important;
 		}
 
 		// Editor switch popup (Visual editing / Source editing)
@@ -1247,7 +1250,7 @@
 
 		.oo-ui-selectWidget .oo-ui-optionWidget:hover,
 		.oo-ui-selectWidget .oo-ui-optionWidget-highlighted {
-			background-color: @dark-bg-surface !important;
+			background-color: #2a2c2e !important;
 		}
 
 		// OOUI dialog headers and labels
