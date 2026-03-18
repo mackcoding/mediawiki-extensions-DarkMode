@@ -1162,16 +1162,52 @@
 			background-color: @dark-bg-surface !important;
 		}
 
-		// VE save button area
-		.ve-ui-toolbar-saveButton .oo-ui-buttonElement-button {
+		// VE save button and toolbar action buttons
+		.ve-ui-toolbar-saveButton .oo-ui-buttonElement-button,
+		.oo-ui-toolbar-actions .oo-ui-flaggedElement-primary .oo-ui-buttonElement-button,
+		.oo-ui-toolbar-actions .oo-ui-flaggedElement-progressive .oo-ui-buttonElement-button {
 			background-color: @dark-highlight !important;
 			color: #fff !important;
 			border-color: @dark-highlight !important;
 		}
 
-		.ve-ui-toolbar-saveButton .oo-ui-buttonElement-button:hover {
+		.ve-ui-toolbar-saveButton .oo-ui-buttonElement-button:hover,
+		.oo-ui-toolbar-actions .oo-ui-flaggedElement-primary .oo-ui-buttonElement-button:hover,
+		.oo-ui-toolbar-actions .oo-ui-flaggedElement-progressive .oo-ui-buttonElement-button:hover {
 			background-color: lighten(@dark-highlight, 10%) !important;
 			border-color: lighten(@dark-highlight, 10%) !important;
+		}
+
+		// VE toolbar actions area (editor switch, save group)
+		.oo-ui-toolbar-actions .oo-ui-buttonElement-button {
+			background-color: @dark-bg-surface !important;
+			color: @dark-text !important;
+			border-color: @dark-border !important;
+		}
+
+		.oo-ui-toolbar-actions .oo-ui-buttonElement-button:hover {
+			background-color: @dark-bg-elevated !important;
+		}
+
+		// Don't let the generic override kill the primary button styling
+		.oo-ui-toolbar-actions .oo-ui-flaggedElement-primary .oo-ui-buttonElement-button,
+		.oo-ui-toolbar-actions .oo-ui-flaggedElement-progressive .oo-ui-buttonElement-button {
+			background-color: @dark-highlight !important;
+			color: #fff !important;
+		}
+
+		// Editor switch popup (Visual editing / Source editing)
+		.oo-ui-popupWidget-body {
+			background-color: @dark-bg-elevated !important;
+		}
+
+		.oo-ui-selectWidget .oo-ui-optionWidget {
+			color: @dark-text !important;
+		}
+
+		.oo-ui-selectWidget .oo-ui-optionWidget:hover,
+		.oo-ui-selectWidget .oo-ui-optionWidget-highlighted {
+			background-color: @dark-bg-surface !important;
 		}
 
 		// OOUI dialog headers and labels
