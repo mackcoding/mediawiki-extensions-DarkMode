@@ -68,6 +68,7 @@
 		--navbar-primary-searchform-border: @dark-border !important;
 		--navbar-primary-searchform-bg: @dark-bg-input !important;
 		--navbar-primary-searchform-fg: @dark-text !important;
+		--navbar-primary-searchform-fg--placeholder: @dark-text-muted !important;
 		--navbar-primary-newbutton-fg: @dark-text-muted !important;
 		--navbar-primary-newbutton-fg--hover: @dark-text-heading !important;
 		--navbar-primary-newbutton-bg: @dark-bg-surface !important;
@@ -317,6 +318,11 @@
 			background-color: @dark-bg-input;
 			color: @dark-text;
 			border-color: @dark-border;
+		}
+
+		input::placeholder,
+		textarea::placeholder {
+			color: @dark-text-muted !important;
 		}
 
 		.form-control {
