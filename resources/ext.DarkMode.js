@@ -21,13 +21,14 @@ $( () => {
 			.addClass( 'ico-btn ext-darkmode-link ext-darkmode-navbar-toggle' )
 			.append( $icon );
 
+		var $li = $( '<li>' ).addClass( 'nav-item' ).append( $btn );
 		// eslint-disable-next-line no-jquery/no-global-selector
-		const $gear = $( '#ga-btn' );
-		if ( $gear.length ) {
-			$gear.before( $btn );
+		var $gearLi = $( '#ga-btn' ).closest( 'li.nav-item' );
+		if ( $gearLi.length ) {
+			$gearLi.before( $li );
 		} else {
 			// eslint-disable-next-line no-jquery/no-global-selector
-			$( '#nb-pri' ).append( $btn );
+			$( '#nb-pri .navbar-nav' ).last().append( $li );
 		}
 
 		return $btn;
