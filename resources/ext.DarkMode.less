@@ -557,32 +557,18 @@
 			color: @dark-text !important;
 		}
 
-		.mw-parser-output table {
+		.mw-parser-output > table,
+		.mw-parser-output > div:not(.srf-eventcalendar) table:not(.fc table):not(.ui-datepicker-calendar) {
 			background-color: @dark-bg-elevated !important;
 			color: @dark-text !important;
 			border-color: @dark-border !important;
 		}
 
-		.mw-parser-output td {
+		.mw-parser-output > table td,
+		.mw-parser-output > div:not(.srf-eventcalendar) table:not(.fc table):not(.ui-datepicker-calendar) td {
 			background-color: @dark-bg !important;
 			color: @dark-text !important;
 			border-color: @dark-border !important;
-		}
-
-		// FullCalendar and jQuery UI live inside .mw-parser-output;
-		// reset them so their own dark mode rules apply cleanly
-		.mw-parser-output .srf-eventcalendar table,
-		.mw-parser-output .srf-eventcalendar td,
-		.mw-parser-output .srf-eventcalendar th,
-		.mw-parser-output .fc table,
-		.mw-parser-output .fc td,
-		.mw-parser-output .fc th,
-		.mw-parser-output .ui-datepicker table,
-		.mw-parser-output .ui-datepicker td,
-		.mw-parser-output .ui-datepicker th {
-			background-color: inherit !important;
-			color: inherit !important;
-			border-color: inherit !important;
 		}
 
 		.mw-parser-output td[style*="background"],
@@ -920,251 +906,8 @@
 			color: @dark-text-muted;
 		}
 
-		// jQuery UI datepicker (calendar)
-		.ui-datepicker {
-			background-color: @dark-bg-surface !important;
-			border-color: @dark-border !important;
-			color: @dark-text !important;
-		}
-
-		.ui-datepicker .ui-datepicker-header {
-			background-color: @dark-bg-elevated !important;
-			border-color: @dark-border !important;
-			color: @dark-text !important;
-		}
-
-		.ui-datepicker .ui-state-default {
-			background-color: @dark-bg-surface !important;
-			border-color: @dark-border !important;
-			color: @dark-text !important;
-		}
-
-		.ui-datepicker .ui-state-highlight {
-			background-color: @dark-highlight !important;
-			color: #fff !important;
-		}
-
-		.ui-datepicker .ui-state-active {
-			background-color: @dark-highlight !important;
-			color: #fff !important;
-		}
-
-		.ui-datepicker .ui-state-hover {
-			background-color: @dark-bg-input !important;
-			color: @dark-text-heading !important;
-		}
-
-		.ui-datepicker select {
-			background-color: @dark-bg-input !important;
-			color: @dark-text !important;
-			border-color: @dark-border !important;
-		}
-
-		.ui-datepicker .ui-datepicker-other-month .ui-state-default {
-			color: @dark-text-muted !important;
-		}
-
-		.ui-widget-content {
-			background-color: @dark-bg-surface !important;
-			border-color: @dark-border !important;
-			color: @dark-text !important;
-		}
-
-		.ui-widget-header {
-			background-color: @dark-bg-elevated !important;
-			border-color: @dark-border !important;
-			color: @dark-text !important;
-		}
-
-		// SRF event calendar container
-		.srf-eventcalendar {
-			background-color: @dark-bg !important;
-			color: @dark-text !important;
-		}
-
-		// FullCalendar (SRF event calendar)
-		.fc-unthemed .fc-content,
-		.fc-unthemed .fc-widget-content,
-		.fc-unthemed .fc-widget-header {
-			border-color: @dark-border !important;
-		}
-
-		.srf-container.fc {
-			background-color: @dark-bg !important;
-		}
-
-		.fc td,
-		.fc th,
-		.fc .fc-day,
-		.fc .fc-bg td,
-		.fc-widget-content,
-		.fc-row .fc-bg {
-			background-color: @dark-bg !important;
-		}
-
-		.fc-head-container,
-		.fc-head-container .fc-widget-header {
-			background-color: @dark-bg-elevated !important;
-			color: @dark-text !important;
-		}
-
-		.fc-head-container th {
-			background-color: @dark-bg-elevated !important;
-			color: @dark-text !important;
-		}
-
-		.fc-unthemed td.fc-today,
-		.fc td.fc-today {
-			background-color: @dark-bg-surface !important;
-		}
-
-		.fc-toolbar h2 {
-			color: @dark-text-heading !important;
-		}
-
-		.fc-button {
-			background-color: @dark-bg-surface !important;
-			border-color: @dark-border !important;
-			color: @dark-text !important;
-		}
-
-		.fc-button:hover {
-			background-color: @dark-bg-input !important;
-		}
-
-		.fc-state-active {
-			background-color: @dark-highlight !important;
-			color: #fff !important;
-		}
-
-		.fc-event,
-		.fc-event-dot {
-			color: #fff !important;
-		}
-
-		.fc-view-container,
-		.fc-view,
-		.fc-view table {
-			background-color: @dark-bg !important;
-		}
-
-		.fc-content-skeleton,
-		.fc-content-skeleton td,
-		.fc-content-skeleton th,
-		.fc-bgevent-skeleton,
-		.fc-bgevent-skeleton td {
-			background-color: transparent !important;
-		}
-
-		.fc-other-month {
-			background-color: @dark-bg-surface !important;
-		}
-
-		.fc-day-number {
-			color: @dark-text !important;
-		}
-
-		.fc-other-month .fc-day-number {
-			color: @dark-text-muted !important;
-		}
-
-		// SRF "Create new event" form
-		.srf-eventcalendar-form,
-		.srf-eventcalendar .smw-form,
-		#content .srf-eventcalendar ~ div,
-		.mw-parser-output > table:last-of-type {
-			background-color: @dark-bg-elevated !important;
-			border-color: @dark-border !important;
-			color: @dark-text !important;
-		}
-
-		.srf-eventcalendar button,
-		.srf-eventcalendar input[type="submit"],
-		.srf-eventcalendar .oo-ui-buttonElement-button {
-			background-color: @dark-bg-surface !important;
-			color: @dark-text !important;
-			border-color: @dark-border !important;
-		}
-
-		// SRF calendar pane
-		.srf-eventcalendar .srf-calendarpane {
-			background-color: @dark-bg-surface !important;
-			color: @dark-text !important;
-		}
-
-		.srf-eventcalendar .srf-calendarpane fieldset {
-			border-color: @dark-border !important;
-			color: @dark-text-muted !important;
-		}
-
-		.srf-eventcalendar .srf-calendarpane legend {
-			color: @dark-text-muted !important;
-		}
-
-		.srf-eventcalendar .srf-calendarpane label {
-			color: @dark-text !important;
-		}
-
-		.srf-eventcalendar .srf-calendarpane input[type="text"],
-		.srf-eventcalendar .srf-calendarpane input[type="radio"],
-		.srf-eventcalendar .srf-calendarpane select {
-			background-color: @dark-bg-input !important;
-			color: @dark-text !important;
-			border-color: @dark-border !important;
-		}
-
-		.srf-eventcalendar .srf-calendarpane .reset-link {
-			color: @dark-link !important;
-		}
-
-		.srf-eventcalendar .srf-calendarpane .parameter-section,
-		.srf-eventcalendar .srf-calendarpane .label,
-		.srf-eventcalendar .srf-calendarpane .value,
-		.srf-eventcalendar .srf-calendarpane .count {
-			color: @dark-text !important;
-		}
-
-		.srf-eventcalendar .parameters {
-			background-color: @dark-bg-surface !important;
-		}
-
-		.srf-eventcalendar .parameters fieldset {
-			border-color: @dark-border !important;
-		}
-
-		.srf-eventcalendar .ui-slider {
-			background-color: @dark-bg-input !important;
-			border-color: @dark-border !important;
-		}
-
-		.srf-eventcalendar .ui-slider-range {
-			background-color: @dark-highlight !important;
-		}
-
-		// jQuery UI datepicker inline (mini calendar in sidebar)
-		.ui-datepicker-inline {
-			background-color: @dark-bg-surface !important;
-			border-color: @dark-border !important;
-		}
-
-		.ui-datepicker-inline .ui-datepicker-calendar td {
-			background-color: @dark-bg-surface !important;
-		}
-
-		.ui-datepicker-inline .ui-datepicker-calendar td a,
-		.ui-datepicker-inline .ui-datepicker-calendar td span {
-			color: @dark-text !important;
-		}
-
-		.ui-datepicker .ui-datepicker-prev,
-		.ui-datepicker .ui-datepicker-next {
-			color: @dark-text !important;
-		}
-
-		.ui-datepicker .ui-datepicker-prev span,
-		.ui-datepicker .ui-datepicker-next span {
-			filter: invert(1);
-		}
+		// Calendar (SRF/FullCalendar/jQuery UI) — left as default light theme
+		// The .mw-parser-output td/table rules exclude .srf-eventcalendar via :not()
 
 		// Sidebar section headers bold
 		#sb-pri .card-header.menu-title,
@@ -1182,7 +925,7 @@
 			color: @dark-link-visited;
 		}
 
-		// Keep editor text areas white for readability
+		// Editor surfaces — soft dark, not blinding white
 		.ve-ce-documentNode,
 		.ve-ui-surface-source .ve-ce-documentNode,
 		.wikiEditor-ui-text textarea,
@@ -1190,19 +933,19 @@
 		.CodeMirror,
 		.cm-editor,
 		.ve-init-mw-desktopArticleTarget .ve-ce-surface {
-			background-color: #fff !important;
-			color: #000 !important;
+			background-color: @dark-bg-surface !important;
+			color: @dark-text !important;
 		}
 
 		.CodeMirror-gutters,
 		.cm-gutters {
-			background-color: #f5f5f5 !important;
-			border-color: #ddd !important;
+			background-color: @dark-bg-elevated !important;
+			border-color: @dark-border !important;
 		}
 
 		.CodeMirror-linenumber,
 		.cm-lineNumbers .cm-gutterElement {
-			color: #999 !important;
+			color: @dark-text-muted !important;
 		}
 
 		// Mega menu links
