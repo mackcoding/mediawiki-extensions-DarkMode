@@ -262,7 +262,7 @@
 		}
 
 		.wikitable td {
-			background-color: @dark-bg-elevated !important;
+			background-color: @dark-bg !important;
 			border-color: @dark-border !important;
 			color: @dark-text !important;
 		}
@@ -540,15 +540,23 @@
 			color: @dark-text !important;
 		}
 
-		.mw-parser-output td,
 		.mw-parser-output table {
 			background-color: @dark-bg-elevated !important;
 			color: @dark-text !important;
 			border-color: @dark-border !important;
 		}
 
+		.mw-parser-output td {
+			background-color: @dark-bg !important;
+			color: @dark-text !important;
+			border-color: @dark-border !important;
+		}
+
 		.mw-parser-output td[style*="background"],
-		.mw-parser-output table[style*="background"],
+		.mw-parser-output table[style*="background"] {
+			background-color: @dark-bg !important;
+		}
+
 		.mw-parser-output div[style*="background"] {
 			background-color: @dark-bg-elevated !important;
 		}
