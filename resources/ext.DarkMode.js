@@ -22,9 +22,9 @@ $( () => {
 			.append( $icon );
 
 		// eslint-disable-next-line no-jquery/no-global-selector
-		const $gearIcon = $( '#nb-pri .bi-gear-fill, #nb-pri [title="Settings"], #nb-pri [title="Global actions"]' );
-		if ( $gearIcon.length ) {
-			$gearIcon.first().closest( 'a, button' ).before( $btn );
+		const $gear = $( '#ga-btn' );
+		if ( $gear.length ) {
+			$gear.before( $btn );
 		} else {
 			// eslint-disable-next-line no-jquery/no-global-selector
 			$( '#nb-pri' ).append( $btn );
