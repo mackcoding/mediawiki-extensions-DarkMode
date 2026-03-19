@@ -4,7 +4,7 @@ A proper dark mode extension for MediaWiki. No `filter: invert()` — all colors
 
 Built for **BlueSpice Discovery** skin but maintains compatibility with Vector and other skins.
 
-![Screenshot](screenshot.png)
+![Screenshot](screenshot-dark.png)
 
 ## Installation
 
