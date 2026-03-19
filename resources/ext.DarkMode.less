@@ -408,9 +408,21 @@
 		}
 
 		.oo-ui-dropdownWidget-handle {
-			background-color: @dark-bg-surface;
-			color: @dark-text;
-			border-color: @dark-border;
+			background-color: @dark-bg-surface !important;
+			color: @dark-text !important;
+			border-color: @dark-border !important;
+		}
+
+		.oo-ui-dropdownWidget-handle .oo-ui-indicatorElement-indicator {
+			filter: invert(1);
+		}
+
+		.oo-ui-menuSelectWidget .oo-ui-menuOptionWidget {
+			color: @dark-text !important;
+		}
+
+		.oo-ui-menuSelectWidget .oo-ui-menuOptionWidget:hover {
+			background-color: @dark-bg-surface !important;
 		}
 
 		.oo-ui-buttonElement-framed > .oo-ui-buttonElement-button {
@@ -476,6 +488,89 @@
 
 		.oo-ui-windowManager-modal > .oo-ui-dialog {
 			background-color: rgba(0, 0, 0, 0.65);
+		}
+
+		// VE save dialog
+		.ve-ui-mwSaveDialog-options {
+			background-color: @dark-bg-surface !important;
+			border-color: @dark-border !important;
+		}
+
+		.ve-ui-mwSaveDialog-options label {
+			color: @dark-text-muted !important;
+		}
+
+		.oo-ui-window-body {
+			background-color: @dark-bg-elevated !important;
+		}
+
+		.ve-ui-mwSaveDialog-license {
+			color: @dark-text-muted !important;
+		}
+
+		.ve-ui-mwSaveDialog-summaryLabel {
+			color: @dark-text-muted !important;
+		}
+
+		// VE save dialog — preview panel
+		.ve-ui-mwSaveDialog-preview {
+			background-color: @dark-bg !important;
+			color: @dark-text !important;
+		}
+
+		.ve-ui-mwSaveDialog-preview .mw-body {
+			background-color: @dark-bg !important;
+			color: @dark-text !important;
+		}
+
+		.ve-ui-mwSaveDialog-preview .mw-body-content {
+			background-color: @dark-bg !important;
+			color: @dark-text !important;
+		}
+
+		.ve-ui-mwSaveDialog-preview .firstHeading {
+			color: @dark-text-heading !important;
+		}
+
+		.ve-ui-mwSaveDialog-preview .mw-summary-preview {
+			color: @dark-text-muted !important;
+			border-color: @dark-border !important;
+		}
+
+		// VE save dialog — review changes viewer
+		.ve-ui-mwSaveDialog-viewer {
+			background-color: @dark-bg !important;
+			color: @dark-text !important;
+		}
+
+		// OOUI booklet layout (Page Information dialog, etc.)
+		.oo-ui-bookletLayout-outlinePanel {
+			background-color: @dark-bg-surface !important;
+			border-color: @dark-border !important;
+		}
+
+		.oo-ui-outlineOptionWidget {
+			color: @dark-text !important;
+		}
+
+		.oo-ui-outlineOptionWidget.oo-ui-optionWidget-selected {
+			background-color: @dark-bg-elevated !important;
+		}
+
+		.oo-ui-outlineOptionWidget:hover {
+			background-color: @dark-bg-elevated !important;
+		}
+
+		.page-information th {
+			background-color: @dark-bg-surface !important;
+			color: @dark-text !important;
+			border-color: @dark-border !important;
+		}
+
+		.page-information td {
+			background-color: @dark-bg-elevated !important;
+			color: @dark-text !important;
+			border-color: @dark-border !important;
 		}
 
 		// Bootstrap overrides for elements not using skin variables
@@ -695,6 +790,60 @@
 
 		.smw-table-header {
 			background-color: @dark-table-header;
+		}
+
+		// Enhanced history page (BlueSpice OOJSPlus grid)
+		.oojsplus-data-gridWidget-table {
+			background-color: @dark-bg !important;
+			color: @dark-text !important;
+			border-color: @dark-border !important;
+		}
+
+		.oojsplus-data-gridWidget-table thead {
+			background-color: @dark-bg-elevated !important;
+		}
+
+		.oojsplus-data-gridWidget-table th {
+			background-color: @dark-bg-elevated !important;
+			color: @dark-text !important;
+			border-color: @dark-border !important;
+		}
+
+		.oojsplus-data-gridWidget-table tr {
+			background-color: @dark-bg !important;
+			border-color: @dark-border !important;
+		}
+
+		.oojsplus-data-gridWidget-table tr:nth-child(even) {
+			background-color: @dark-bg-surface !important;
+		}
+
+		.oojsplus-data-gridWidget-table td {
+			background-color: transparent !important;
+			color: @dark-text !important;
+			border-color: @dark-border !important;
+		}
+
+		.oojsplus-data-gridWidget-table .enhanced-history-diff-plus {
+			background-color: @dark-bg !important;
+		}
+
+		.oojsplus-data-gridWidget-table .enhanced-history-diff-minus {
+			background-color: @dark-bg-surface !important;
+		}
+
+		.enhanced-history-toolbar {
+			background-color: @dark-bg-elevated !important;
+			border-color: @dark-border !important;
+		}
+
+		.oojsplus-data-toolbar {
+			background-color: @dark-bg !important;
+			color: @dark-text !important;
+		}
+
+		.oojsplus-data-paginator {
+			color: @dark-text-muted !important;
 		}
 
 		// Scrollbar
@@ -1048,27 +1197,136 @@
 			color: @dark-link-visited;
 		}
 
-		// Editor surfaces — soft dark, not blinding white
+		// Editor surfaces — VE visual mode
 		.ve-ce-documentNode,
-		.ve-ui-surface-source .ve-ce-documentNode,
-		.wikiEditor-ui-text textarea,
-		#wpTextbox1,
-		.CodeMirror,
-		.cm-editor,
 		.ve-init-mw-desktopArticleTarget .ve-ce-surface {
 			background-color: @dark-bg-surface !important;
 			color: @dark-text !important;
 		}
 
-		.CodeMirror-gutters,
-		.cm-gutters {
+		// VE source mode — the contenteditable underneath CodeMirror
+		.ve-ui-surface-source .ve-ce-documentNode {
+			background-color: @dark-bg-surface !important;
+			color: @dark-text !important;
+		}
+
+		// Classic wikitext editor (action=edit without VE)
+		.wikiEditor-ui-text textarea,
+		#wpTextbox1 {
+			background-color: @dark-bg-surface !important;
+			color: @dark-text !important;
+		}
+
+		// CodeMirror v5 — container, scroll area, lines, cursor
+		.CodeMirror {
+			background-color: @dark-bg-surface !important;
+			color: @dark-text !important;
+		}
+
+		.CodeMirror-scroll {
+			background-color: @dark-bg-surface !important;
+		}
+
+		.CodeMirror-sizer {
+			background-color: @dark-bg-surface !important;
+		}
+
+		.CodeMirror-lines {
+			color: @dark-text !important;
+		}
+
+		.CodeMirror-line,
+		.CodeMirror-line span {
+			color: @dark-text !important;
+		}
+
+		.CodeMirror-gutters {
 			background-color: @dark-bg-elevated !important;
 			border-color: @dark-border !important;
 		}
 
-		.CodeMirror-linenumber,
+		.CodeMirror-linenumber {
+			color: @dark-text-muted !important;
+		}
+
+		.CodeMirror-gutter-elt {
+			color: @dark-text-muted !important;
+		}
+
+		.CodeMirror-cursor {
+			border-left-color: @dark-text !important;
+		}
+
+		.CodeMirror-selected {
+			background-color: #264f78 !important;
+		}
+
+		.CodeMirror-activeline-background {
+			background-color: @dark-bg-elevated !important;
+		}
+
+		// CodeMirror v6 — container, content, lines, cursor
+		.cm-editor {
+			background-color: @dark-bg-surface !important;
+			color: @dark-text !important;
+		}
+
+		.cm-content {
+			color: @dark-text !important;
+			caret-color: @dark-text !important;
+		}
+
+		.cm-line {
+			color: @dark-text !important;
+		}
+
+		.cm-gutters {
+			background-color: @dark-bg-elevated !important;
+			border-color: @dark-border !important;
+			color: @dark-text-muted !important;
+		}
+
 		.cm-lineNumbers .cm-gutterElement {
 			color: @dark-text-muted !important;
+		}
+
+		.cm-activeLineGutter {
+			background-color: @dark-bg-surface !important;
+		}
+
+		.cm-activeLine {
+			background-color: @dark-bg-elevated !important;
+		}
+
+		.cm-selectionBackground {
+			background-color: #264f78 !important;
+		}
+
+		// CodeMirror syntax highlighting — muted so it doesn't clash
+		.cm-mw-template-name,
+		.cm-mw-template,
+		.cm-mw-template-bracket,
+		.cm-mw-template-delimiter,
+		.cm-mw-template-argument-name {
+			color: #c586c0 !important;
+		}
+
+		.cm-mw-link-ground,
+		.cm-mw-link-bracket {
+			color: @dark-link !important;
+		}
+
+		.cm-mw-heading {
+			color: @dark-text-heading !important;
+		}
+
+		.cm-mw-tag,
+		.cm-mw-exttag {
+			color: #569cd6 !important;
+		}
+
+		.cm-mw-comment {
+			color: #6a9955 !important;
 		}
 
 		// Mega menu links
@@ -1230,7 +1488,7 @@
 			background-size: contain;
 			background-repeat: no-repeat;
 			background-position: bottom right;
-			opacity: 0.15;
+			opacity: 0.25;
 			pointer-events: none;
 			z-index: 0;
 		}
