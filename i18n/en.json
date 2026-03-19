@@ -4,7 +4,7 @@
   },
   "darkmode-desc": "A PROPER toggleable dark mode for the MediaWiki user interface that does not just invert the colors.",
   "darkmode-link": "Dark mode",
-  "darkmode-link-tooltip": "Turn dark mode on",
-  "darkmode-default-link": "Default mode",
-  "darkmode-default-link-tooltip": "Turn dark mode off"
+  "darkmode-link-tooltip": "Switch to dark mode",
+  "darkmode-default-link": "Light mode",
+  "darkmode-default-link-tooltip": "Switch to light mode"
 }
