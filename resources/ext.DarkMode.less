@@ -906,8 +906,41 @@
 			color: @dark-text-muted;
 		}
 
-		// Calendar (SRF/FullCalendar/jQuery UI) — left as default light theme
-		// The .mw-parser-output td/table rules exclude .srf-eventcalendar via :not()
+		// Calendar — minimal targeted fixes only
+		.fc td.fc-today {
+			background-color: @dark-bg-surface !important;
+		}
+
+		.fc .fc-day-number {
+			color: @dark-text !important;
+		}
+
+		.srf-calendarpane {
+			color: @dark-text !important;
+		}
+
+		.srf-calendarpane fieldset {
+			border-color: @dark-border !important;
+		}
+
+		.srf-calendarpane legend,
+		.srf-calendarpane label,
+		.srf-calendarpane .parameter-section,
+		.srf-calendarpane .value,
+		.srf-calendarpane .count {
+			color: @dark-text-muted !important;
+		}
+
+		.srf-calendarpane .reset-link {
+			color: @dark-link !important;
+		}
+
+		.srf-calendarpane select,
+		.srf-calendarpane input[type="text"] {
+			background-color: @dark-bg-input !important;
+			color: @dark-text !important;
+			border-color: @dark-border !important;
+		}
 
 		// Sidebar section headers bold
 		#sb-pri .card-header.menu-title,
