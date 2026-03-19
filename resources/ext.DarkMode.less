@@ -30,6 +30,23 @@
 		}
 	}
 
+	.ext-darkmode-navbar-toggle {
+		font-size: 1.2em;
+		cursor: pointer;
+		margin-right: 8px;
+		opacity: 0.7;
+		transition: opacity 0.2s;
+
+		&:hover {
+			opacity: 1;
+			text-decoration: none !important;
+		}
+
+		&::before {
+			display: none;
+		}
+	}
+
 	// Override BlueSpice Discovery CSS custom properties
 	// Specificity 0,2,1 beats :root (0,1,0) regardless of source order
 	html.client-js.skin-theme-clientpref-night,
@@ -552,6 +569,22 @@
 			border-color: @dark-border !important;
 		}
 
+		// FullCalendar and jQuery UI live inside .mw-parser-output;
+		// reset them so their own dark mode rules apply cleanly
+		.mw-parser-output .srf-eventcalendar table,
+		.mw-parser-output .srf-eventcalendar td,
+		.mw-parser-output .srf-eventcalendar th,
+		.mw-parser-output .fc table,
+		.mw-parser-output .fc td,
+		.mw-parser-output .fc th,
+		.mw-parser-output .ui-datepicker table,
+		.mw-parser-output .ui-datepicker td,
+		.mw-parser-output .ui-datepicker th {
+			background-color: inherit !important;
+			color: inherit !important;
+			border-color: inherit !important;
+		}
+
 		.mw-parser-output td[style*="background"],
 		.mw-parser-output table[style*="background"] {
 			background-color: @dark-bg !important;
@@ -943,11 +976,21 @@
 			color: @dark-text !important;
 		}
 
+		// SRF event calendar container
+		.srf-eventcalendar {
+			background-color: @dark-bg !important;
+			color: @dark-text !important;
+		}
+
 		// FullCalendar (SRF event calendar)
 		.fc-unthemed .fc-content,
 		.fc-unthemed .fc-widget-content,
 		.fc-unthemed .fc-widget-header {
 			border-color: @dark-border !important;
+		}
+
+		.srf-container.fc {
+			background-color: @dark-bg !important;
 		}
 
 		.fc td,
@@ -996,8 +1039,6 @@
 
 		.fc-event,
 		.fc-event-dot {
-			background-color: @dark-highlight !important;
-			border-color: @dark-highlight !important;
 			color: #fff !important;
 		}
 
@@ -1064,14 +1105,31 @@
 			color: @dark-text !important;
 		}
 
-		.srf-eventcalendar .srf-calendarpane input[type="text"] {
+		.srf-eventcalendar .srf-calendarpane input[type="text"],
+		.srf-eventcalendar .srf-calendarpane input[type="radio"],
+		.srf-eventcalendar .srf-calendarpane select {
 			background-color: @dark-bg-input !important;
 			color: @dark-text !important;
 			border-color: @dark-border !important;
 		}
 
+		.srf-eventcalendar .srf-calendarpane .reset-link {
+			color: @dark-link !important;
+		}
+
+		.srf-eventcalendar .srf-calendarpane .parameter-section,
+		.srf-eventcalendar .srf-calendarpane .label,
+		.srf-eventcalendar .srf-calendarpane .value,
+		.srf-eventcalendar .srf-calendarpane .count {
+			color: @dark-text !important;
+		}
+
 		.srf-eventcalendar .parameters {
 			background-color: @dark-bg-surface !important;
+		}
+
+		.srf-eventcalendar .parameters fieldset {
+			border-color: @dark-border !important;
 		}
 
 		.srf-eventcalendar .ui-slider {

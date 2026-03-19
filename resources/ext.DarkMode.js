@@ -2,14 +2,57 @@
  * Some code adapted from the enwiki gadget https://w.wiki/5Ktj
  */
 $( () => {
-	// eslint-disable-next-line no-jquery/no-global-selector
-	const $darkModeLink = $( '.ext-darkmode-link' );
+	const position = mw.config.get( 'wgDarkModeTogglePosition' );
 
-	/**
-	 * @param {boolean} darkMode is dark mode currently enabled?
-	 */
+	function isDarkModeEnabled() {
+		return document.documentElement.classList.contains( 'skin-theme-clientpref-night' );
+	}
+
+	function createNavbarToggle() {
+		const darkMode = isDarkModeEnabled();
+		const $icon = $( '<i>' ).addClass( darkMode ? 'bi-sun-fill' : 'bi-moon-fill' );
+		const $btn = $( '<a>' )
+			.attr( {
+				href: '#',
+				title: mw.msg( darkMode ? 'darkmode-default-link-tooltip' : 'darkmode-link-tooltip' ),
+				'aria-label': mw.msg( darkMode ? 'darkmode-default-link' : 'darkmode-link' ),
+				role: 'button'
+			} )
+			.addClass( 'ico-btn ext-darkmode-link ext-darkmode-navbar-toggle' )
+			.append( $icon );
+
+		// eslint-disable-next-line no-jquery/no-global-selector
+		const $navbar = $( '#nb-pri .navbar-tools, #nb-pri .navbar-nav.ms-auto, #nb-pri .d-flex.align-items-center' );
+		if ( $navbar.length ) {
+			$navbar.first().prepend( $btn );
+		} else {
+			// eslint-disable-next-line no-jquery/no-global-selector
+			$( '#nb-pri' ).find( '.navbar-nav' ).last().before( $btn );
+		}
+
+		return $btn;
+	}
+
+	let $darkModeLink;
+
+	if ( position === 'navbar' ) {
+		$darkModeLink = createNavbarToggle();
+	} else {
+		// eslint-disable-next-line no-jquery/no-global-selector
+		$darkModeLink = $( '.ext-darkmode-link' );
+	}
+
 	function updateLink( darkMode ) {
-		// Update the icon.
+		if ( position === 'navbar' ) {
+			$darkModeLink.find( 'i' )
+				.removeClass( 'bi-moon-fill bi-sun-fill' )
+				.addClass( darkMode ? 'bi-sun-fill' : 'bi-moon-fill' );
+			$darkModeLink
+				.attr( 'title', mw.msg( darkMode ? 'darkmode-default-link-tooltip' : 'darkmode-link-tooltip' ) )
+				.attr( 'aria-label', mw.msg( darkMode ? 'darkmode-default-link' : 'darkmode-link' ) );
+			return;
+		}
+
 		if ( darkMode ) {
 			$darkModeLink.find( '.mw-ui-icon-moon' )
 				.removeClass( 'mw-ui-icon-moon' )
@@ -19,12 +62,11 @@ $( () => {
 				.removeClass( 'mw-ui-icon-bright' )
 				.addClass( 'mw-ui-icon-moon' );
 		}
-		// Use different CSS selectors for the dark mode link based on the skin.
+
 		const labelSelector = [ 'vector' ].includes( mw.config.get( 'skin' ) ) ?
 			'span:not( .mw-ui-icon, .vector-icon )' :
 			'a';
 
-		// Update the link text and tooltip.
 		$darkModeLink.find( labelSelector )
 			.text( mw.msg( darkMode ? 'darkmode-default-link' : 'darkmode-link' ) )
 			.attr( 'title', mw.msg( darkMode ?
@@ -37,16 +79,11 @@ $( () => {
 		e.preventDefault();
 
 		const docClassList = document.documentElement.classList;
-		// NOTE: this must be on <html> element because the CSS filter creates
-		// a new stacking context.
-		// See comments in Hooks::onBeforePageDisplay() for more information.
 		const darkMode = !docClassList.contains( 'skin-theme-clientpref-night' );
 
 		if ( mw.user.isAnon() ) {
-			// If the user is anonymous (not logged in) write a cookie
 			mw.user.clientPrefs.set( 'skin-theme', darkMode ? 'night' : 'day' );
 		} else {
-			// If the user is logged in write with API to user settings
 			new mw.Api().saveOption( 'darkmode', darkMode ? '1' : '0' );
 		}
 
@@ -62,14 +99,9 @@ $( () => {
 
 		updateLink( darkMode );
 
-		// Update the mobile theme-color
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$( 'meta[name="theme-color"]' ).attr( 'content', darkMode ? '#000000' : '#eaecf0' );
 	} );
-
-	function isDarkModeEnabled() {
-		return document.documentElement.classList.contains( 'skin-theme-clientpref-night' );
-	}
 
 	if ( !mw.user.isNamed() && isDarkModeEnabled() ) {
 		updateLink( true );

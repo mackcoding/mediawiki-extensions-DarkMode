@@ -28,10 +28,12 @@ class Hooks implements
 	public const POSITION_FOOTER = 'footer';
 	public const POSITION_PERSONAL = 'personal';
 	public const POSITION_SIDEBAR = 'sidebar';
+	public const POSITION_NAVBAR = 'navbar';
 	public const TOGGLE_POSITIONS = [
 		self::POSITION_FOOTER => 'footer',
 		self::POSITION_PERSONAL => 'personal',
 		self::POSITION_SIDEBAR => 'sidebar',
+		self::POSITION_NAVBAR => 'navbar',
 	];
 
 	/** @var string */
@@ -146,6 +148,11 @@ class Hooks implements
 
 		$out->addModules( 'ext.DarkMode' );
 		$out->addModuleStyles( 'ext.DarkMode.styles' );
+
+		$out->addJsConfigVars( [
+			'wgDarkModeTogglePosition' => $this->linkPosition,
+			'wgDarkModeActive' => $this->isDarkModeActive( $skin ),
+		] );
 
 		if ( $this->isDarkModeActive( $skin ) ) {
 			// The class must be on the <html> element because the CSS filter creates a new stacking context.
