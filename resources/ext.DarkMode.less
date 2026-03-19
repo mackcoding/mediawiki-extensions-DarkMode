@@ -557,18 +557,28 @@
 			color: @dark-text !important;
 		}
 
-		.mw-parser-output > table,
-		.mw-parser-output > div:not(.srf-eventcalendar) table:not(.fc table):not(.ui-datepicker-calendar) {
+		.mw-parser-output table {
 			background-color: @dark-bg-elevated !important;
 			color: @dark-text !important;
 			border-color: @dark-border !important;
 		}
 
-		.mw-parser-output > table td,
-		.mw-parser-output > div:not(.srf-eventcalendar) table:not(.fc table):not(.ui-datepicker-calendar) td {
+		.mw-parser-output td {
 			background-color: @dark-bg !important;
 			color: @dark-text !important;
 			border-color: @dark-border !important;
+		}
+
+		// Undo the above for calendar/datepicker elements
+		.srf-eventcalendar table,
+		.srf-eventcalendar td,
+		.srf-eventcalendar th,
+		.ui-datepicker table,
+		.ui-datepicker td,
+		.ui-datepicker th {
+			background-color: transparent !important;
+			color: inherit !important;
+			border-color: inherit !important;
 		}
 
 		.mw-parser-output td[style*="background"],
@@ -954,7 +964,7 @@
 			text-decoration: underline;
 		}
 
-		a:visited:not([class*='oo-ui-']):not(.ico-btn):not(.dropdown-toggle):not(.breadcrumb-item a) {
+		a:visited:not([class*='oo-ui-']):not(.ico-btn):not(.dropdown-toggle):not(.breadcrumb-item) {
 			color: @dark-link-visited;
 		}
 
