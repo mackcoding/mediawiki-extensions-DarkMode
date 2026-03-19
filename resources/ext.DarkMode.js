@@ -22,12 +22,12 @@ $( () => {
 			.append( $icon );
 
 		// eslint-disable-next-line no-jquery/no-global-selector
-		const $navbar = $( '#nb-pri .navbar-tools, #nb-pri .navbar-nav.ms-auto, #nb-pri .d-flex.align-items-center' );
-		if ( $navbar.length ) {
-			$navbar.first().prepend( $btn );
+		const $gearIcon = $( '#nb-pri .bi-gear-fill, #nb-pri [title="Settings"], #nb-pri [title="Global actions"]' );
+		if ( $gearIcon.length ) {
+			$gearIcon.first().closest( 'a, button' ).before( $btn );
 		} else {
 			// eslint-disable-next-line no-jquery/no-global-selector
-			$( '#nb-pri' ).find( '.navbar-nav' ).last().before( $btn );
+			$( '#nb-pri' ).append( $btn );
 		}
 
 		return $btn;
