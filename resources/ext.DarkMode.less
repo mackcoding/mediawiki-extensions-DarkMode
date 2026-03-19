@@ -793,46 +793,55 @@
 		}
 
 		// Enhanced history page (BlueSpice OOJSPlus grid)
-		.oojsplus-data-gridWidget-table {
+		.oojsplus-data-gridWidget-table.style-differentiate-rows {
 			background-color: @dark-bg !important;
 			color: @dark-text !important;
 			border-color: @dark-border !important;
 		}
 
-		.oojsplus-data-gridWidget-table thead {
+		.oojsplus-data-gridWidget-table.style-differentiate-rows thead,
+		.oojsplus-data-gridWidget-table.style-differentiate-rows .oojsplus-data-gridWidget-header {
 			background-color: @dark-bg-elevated !important;
 		}
 
-		.oojsplus-data-gridWidget-table th {
+		.oojsplus-data-gridWidget-table.style-differentiate-rows th,
+		.oojsplus-data-gridWidget-table.style-differentiate-rows .oojsplus-data-gridWidget-column-header {
 			background-color: @dark-bg-elevated !important;
 			color: @dark-text !important;
 			border-color: @dark-border !important;
 		}
 
-		.oojsplus-data-gridWidget-table tr {
+		.oojsplus-data-gridWidget-table.style-differentiate-rows .oojsplus-data-gridWidget-row {
 			background-color: @dark-bg !important;
 			border-color: @dark-border !important;
+			color: @dark-text !important;
 		}
 
-		.oojsplus-data-gridWidget-table tr:nth-child(even) {
+		.oojsplus-data-gridWidget-table.style-differentiate-rows .oojsplus-data-gridWidget-row:nth-child(even) {
 			background-color: @dark-bg-surface !important;
 		}
 
-		.oojsplus-data-gridWidget-table td {
+		.oojsplus-data-gridWidget-table.style-differentiate-rows td,
+		.oojsplus-data-gridWidget-table.style-differentiate-rows .oojsplus-data-gridWidget-cell {
 			background-color: transparent !important;
 			color: @dark-text !important;
 			border-color: @dark-border !important;
 		}
 
-		.oojsplus-data-gridWidget-table .enhanced-history-diff-plus {
+		.oojsplus-data-gridWidget-table.style-differentiate-rows tr.enhanced-history-diff-plus {
 			background-color: @dark-bg !important;
 		}
 
-		.oojsplus-data-gridWidget-table .enhanced-history-diff-minus {
+		.oojsplus-data-gridWidget-table.style-differentiate-rows tr.enhanced-history-diff-minus {
 			background-color: @dark-bg-surface !important;
 		}
 
-		.enhanced-history-toolbar {
+		.oojsplus-data-gridWidget .oojsplus-data-gridWidget-filter-widget {
+			background-color: @dark-bg-elevated !important;
+		}
+
+		.enhanced-history-toolbar,
+		.enhanced-history-toolbar .oo-ui-toolbar-bar {
 			background-color: @dark-bg-elevated !important;
 			border-color: @dark-border !important;
 		}
@@ -844,6 +853,10 @@
 
 		.oojsplus-data-paginator {
 			color: @dark-text-muted !important;
+		}
+
+		.grid-container {
+			background-color: @dark-bg !important;
 		}
 
 		// Scrollbar
@@ -1204,10 +1217,15 @@
 			color: @dark-text !important;
 		}
 
-		// VE source mode — the contenteditable underneath CodeMirror
-		.ve-ui-surface-source .ve-ce-documentNode {
+		// VE source mode — force all text visible
+		.ve-ui-surface-source .ve-ce-documentNode,
+		.ve-ui-surface-source .ve-ce-documentNode * {
 			background-color: @dark-bg-surface !important;
 			color: @dark-text !important;
+		}
+
+		.ve-ui-surface-source .ve-ce-documentNode a {
+			color: @dark-link !important;
 		}
 
 		// Classic wikitext editor (action=edit without VE)
