@@ -664,18 +664,6 @@
 			border-color: @dark-border !important;
 		}
 
-		// Undo the above for calendar/datepicker elements
-		.srf-eventcalendar table,
-		.srf-eventcalendar td,
-		.srf-eventcalendar th,
-		.ui-datepicker table,
-		.ui-datepicker td,
-		.ui-datepicker th {
-			background-color: transparent !important;
-			color: inherit !important;
-			border-color: inherit !important;
-		}
-
 		.mw-parser-output td[style*="background"],
 		.mw-parser-output table[style*="background"] {
 			background-color: @dark-bg !important;
@@ -1078,120 +1066,15 @@
 			color: @dark-text-muted;
 		}
 
-		// Calendar containers
+		// Calendar: invert the entire calendar container for dark mode
 		.srf-eventcalendar {
-			background-color: @dark-bg !important;
-		}
+			filter: invert(1) hue-rotate(180deg);
 
-		.srf-eventcalendar .ui-widget-content {
-			background-color: @dark-bg !important;
-			border-color: @dark-border !important;
-			color: @dark-text !important;
-		}
-
-		.srf-eventcalendar .ui-widget-header {
-			background-color: @dark-bg-elevated !important;
-			border-color: @dark-border !important;
-			color: @dark-text !important;
-		}
-
-		.srf-eventcalendar .ui-state-default {
-			background-color: @dark-bg-surface !important;
-			border-color: @dark-border !important;
-			color: @dark-text !important;
-		}
-
-		.srf-eventcalendar .ui-state-highlight {
-			background-color: @dark-highlight !important;
-			color: #fff !important;
-		}
-
-		.srf-eventcalendar .ui-state-active {
-			background-color: @dark-highlight !important;
-			color: #fff !important;
-		}
-
-		.srf-container.fc {
-			background-color: @dark-bg !important;
-		}
-
-		.fc-view-container,
-		.fc-view {
-			background-color: @dark-bg !important;
-		}
-
-		.fc-head-container {
-			background-color: @dark-bg-elevated !important;
-		}
-
-		.fc .fc-widget-header {
-			background-color: @dark-bg-elevated !important;
-			color: @dark-text !important;
-		}
-
-		.fc td.fc-today {
-			background-color: @dark-bg-surface !important;
-		}
-
-		.fc .fc-day-number {
-			color: @dark-text !important;
-		}
-
-		.fc-toolbar h2 {
-			color: @dark-text !important;
-		}
-
-		.fc-button {
-			background-color: @dark-bg-surface !important;
-			border-color: @dark-border !important;
-			color: @dark-text !important;
-		}
-
-		.fc-state-active {
-			background-color: @dark-highlight !important;
-			color: #fff !important;
-		}
-
-		// Calendar sidebar
-		.srf-calendarpane {
-			background-color: @dark-bg-surface !important;
-			color: @dark-text !important;
-		}
-
-		.srf-calendarpane fieldset {
-			border-color: @dark-border !important;
-		}
-
-		.srf-calendarpane legend,
-		.srf-calendarpane label,
-		.srf-calendarpane .parameter-section,
-		.srf-calendarpane .value,
-		.srf-calendarpane .count {
-			color: @dark-text-muted !important;
-		}
-
-		.srf-calendarpane .reset-link {
-			color: @dark-link !important;
-		}
-
-		.srf-calendarpane select,
-		.srf-calendarpane input[type="text"] {
-			background-color: @dark-bg-input !important;
-			color: @dark-text !important;
-			border-color: @dark-border !important;
-		}
-
-		.srf-eventcalendar .parameters {
-			background-color: @dark-bg-surface !important;
-		}
-
-		.srf-eventcalendar .ui-slider {
-			background-color: @dark-bg-input !important;
-			border-color: @dark-border !important;
-		}
-
-		.srf-eventcalendar .ui-slider-range {
-			background-color: @dark-highlight !important;
+			// Re-invert images/icons inside so they display correctly
+			img,
+			.fc-event {
+				filter: invert(1) hue-rotate(180deg);
+			}
 		}
 
 		// Sidebar section headers bold
