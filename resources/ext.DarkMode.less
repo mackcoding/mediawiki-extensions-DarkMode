@@ -1066,31 +1066,36 @@
 			color: @dark-text-muted;
 		}
 
-		// Calendar: invert the entire calendar container for dark mode
+		// Calendar: invert the entire calendar container for dark mode.
+		// The invert needs the calendar to render in its original light-theme
+		// colors first. We must neutralize our own dark-mode overrides on
+		// table/td/th/input/etc using transparent/inherit so FullCalendar and
+		// jQuery UI styles render normally, then the invert produces a dark result.
 		.srf-eventcalendar {
 			filter: invert(1) hue-rotate(180deg);
 
-			// Reset dark-mode overrides so the invert acts on original light colors
+			// Neutralize dark-mode overrides from .mw-parser-output table/td/th
+			// and form element rules so FullCalendar's own light CSS wins
 			table,
 			td,
 			th,
-			.ui-widget-content,
-			.ui-widget-header,
-			.ui-state-default,
-			.ui-state-highlight,
-			.ui-state-active,
-			select,
-			input,
-			fieldset,
-			legend,
-			label {
-				background-color: revert !important;
-				color: revert !important;
-				border-color: revert !important;
+			.ui-datepicker table,
+			.ui-datepicker td,
+			.ui-datepicker th {
+				background-color: transparent !important;
+				color: inherit !important;
+				border-color: inherit !important;
 			}
 
-			// Re-invert images/icons inside so they display correctly
-			img,
+			input,
+			select,
+			fieldset {
+				background-color: transparent !important;
+				color: inherit !important;
+				border-color: inherit !important;
+			}
+
+			// Re-invert event badges so their custom colors display correctly
 			.fc-event {
 				filter: invert(1) hue-rotate(180deg);
 			}
