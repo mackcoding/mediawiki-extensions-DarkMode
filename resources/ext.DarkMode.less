@@ -1067,35 +1067,157 @@
 		}
 
 		// Calendar: invert the entire calendar container for dark mode.
-		// The invert needs the calendar to render in its original light-theme
-		// colors first. We must neutralize our own dark-mode overrides on
-		// table/td/th/input/etc using transparent/inherit so FullCalendar and
-		// jQuery UI styles render normally, then the invert produces a dark result.
+		// The filter needs the calendar to render in its ORIGINAL light-theme
+		// appearance. Every dark-mode override that leaks into this container
+		// must be neutralized, otherwise inverted dark colors become white patches.
+		//
+		// Strategy: force the container and its children back to light-mode colors
+		// so FullCalendar + jQuery UI render as on a white page, then the invert
+		// filter produces a proper dark result.
 		.srf-eventcalendar {
 			filter: invert(1) hue-rotate(180deg);
 
-			// Neutralize dark-mode overrides from .mw-parser-output table/td/th
-			// and form element rules so FullCalendar's own light CSS wins
-			table,
-			td,
-			th,
-			.ui-datepicker table,
-			.ui-datepicker td,
-			.ui-datepicker th {
-				background-color: transparent !important;
-				color: inherit !important;
-				border-color: inherit !important;
+			// Force a light-mode context: white bg, black text, gray borders
+			background-color: #fff !important;
+			color: #222 !important;
+			border-color: #ddd !important;
+
+			// Reset ALL descendants that our dark-mode rules target.
+			// These selectors match every rule from our stylesheet that uses
+			// !important on .mw-parser-output table/td/th, plus generic
+			// table, input, select, fieldset, form-control, a, etc.
+
+			// Tables (matches our .mw-parser-output table/td/th and generic table rules)
+			table {
+				background-color: #fff !important;
+				color: #222 !important;
+				border-color: #aaa !important;
 			}
 
+			th {
+				background-color: #eaecf0 !important;
+				color: #222 !important;
+				border-color: #aaa !important;
+			}
+
+			td {
+				background-color: #fff !important;
+				color: #222 !important;
+				border-color: #ddd !important;
+			}
+
+			tr:nth-child(even) {
+				background-color: #fff !important;
+			}
+
+			// Form elements (matches our input/select/fieldset/form-control rules)
 			input,
-			select,
-			fieldset {
-				background-color: transparent !important;
-				color: inherit !important;
-				border-color: inherit !important;
+			select {
+				background-color: #fff !important;
+				color: #333 !important;
+				border-color: #ccc !important;
 			}
 
-			// Re-invert event badges so their custom colors display correctly
+			fieldset {
+				border-color: #aaa !important;
+			}
+
+			legend,
+			label {
+				color: #333 !important;
+			}
+
+			.form-control {
+				background-color: #fff !important;
+				color: #333 !important;
+				border-color: #ccc !important;
+			}
+
+			.input-group-text {
+				background-color: #eee !important;
+				color: #333 !important;
+				border-color: #ccc !important;
+			}
+
+			// Links
+			a {
+				color: #0645ad !important;
+			}
+
+			// FC-specific: day numbers, toolbar title, today highlight
+			.fc-day-number {
+				color: #222 !important;
+			}
+
+			.fc-toolbar h2 {
+				color: #222 !important;
+			}
+
+			td.fc-today {
+				background-color: #fcf8e3 !important;
+			}
+
+			// FC buttons (toolbar Month/Week/Day, prev/next, today)
+			.fc-button,
+			.fc-state-default {
+				background-color: #f5f5f5 !important;
+				color: #333 !important;
+				border-color: #ccc !important;
+				background-image: linear-gradient(to bottom, #fff, #e6e6e6) !important;
+			}
+
+			.fc-state-active {
+				background-color: #ccc !important;
+				background-image: none !important;
+				color: #333 !important;
+			}
+
+			// FC header row
+			.fc-widget-header {
+				background-color: #f5f5f5 !important;
+				color: #222 !important;
+			}
+
+			// jQuery UI datepicker & widget styles (sidebar mini calendar)
+			.ui-widget-content {
+				background-color: #fff !important;
+				color: #222 !important;
+				border-color: #aaa !important;
+			}
+
+			.ui-widget-header {
+				background-color: #ccc !important;
+				color: #222 !important;
+				border-color: #aaa !important;
+			}
+
+			.ui-state-default {
+				background-color: #e6e6e6 !important;
+				color: #555 !important;
+				border-color: #d3d3d3 !important;
+			}
+
+			.ui-state-highlight {
+				background-color: #fbf9ee !important;
+				color: #363636 !important;
+			}
+
+			.ui-state-active {
+				background-color: #fff !important;
+				color: #212121 !important;
+			}
+
+			// SRF sidebar pane
+			.srf-calendarpane {
+				background-color: #fff !important;
+				color: #222 !important;
+			}
+
+			.srf-calendarpane .reset-link {
+				color: #0645ad !important;
+			}
+
+			// Re-invert event badges so their per-event custom colors stay correct
 			.fc-event {
 				filter: invert(1) hue-rotate(180deg);
 			}
