@@ -1070,6 +1070,25 @@
 		.srf-eventcalendar {
 			filter: invert(1) hue-rotate(180deg);
 
+			// Reset dark-mode overrides so the invert acts on original light colors
+			table,
+			td,
+			th,
+			.ui-widget-content,
+			.ui-widget-header,
+			.ui-state-default,
+			.ui-state-highlight,
+			.ui-state-active,
+			select,
+			input,
+			fieldset,
+			legend,
+			label {
+				background-color: revert !important;
+				color: revert !important;
+				border-color: revert !important;
+			}
+
 			// Re-invert images/icons inside so they display correctly
 			img,
 			.fc-event {
